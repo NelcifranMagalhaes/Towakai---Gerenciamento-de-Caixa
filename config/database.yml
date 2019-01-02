@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: postgres
+  password: root
+
+development:
+  <<: *default
+  database: InventoryTowakai_development
+
+test:
+  <<: *default
+  database: InventoryTowakai_test
+
+production:
+  <<: *default
+  database: InventoryTowakai_production
+  username: InventoryTowakai
+  password: <%= ENV['INVENTORYTOWAKAI_DATABASE_PASSWORD'] %>
