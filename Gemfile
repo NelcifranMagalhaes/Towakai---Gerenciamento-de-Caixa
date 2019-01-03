@@ -37,6 +37,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  #https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '~> 3.8'
+  #https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails'
+
 end
 
 group :development do
@@ -66,3 +71,5 @@ gem 'simple_form'
 gem 'jquery-rails'
 #https://github.com/bokmann/font-awesome-rails
 gem 'font-awesome-rails'
+gem 'devise'
+gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
