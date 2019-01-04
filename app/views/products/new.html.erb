@@ -1,5 +1,8 @@
-<h1>New Product</h1>
-
+<article class="message is-dark">
+	<div class="message-header">
+		<p>Novo Produto</p>
+	</div>
+</article>   
 <%= render 'form', product: @product %>
-
-<%= link_to 'Back', products_path %>
+<br>
+<%= link_to 'Voltar', products_path ,class: "button is-info is-inverted"%>

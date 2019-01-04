@@ -3,15 +3,40 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :value %>
-    <%= f.input :cost_price %>
-    <%= f.input :tax %>
-    <%= f.input :sale_price %>
-    <%= f.input :name %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="box">
+    <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+            <%= f.input :name,label: false ,input_html: {class: 'input'}%>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Preço de Custo</label>
+        <div class="control">
+            <%= f.input :cost_price,label: false ,input_html: {class: 'input'}%>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Taxas</label>
+        <div class="control">
+            <%= f.input :tax,label: false ,input_html: {class: 'input'}%>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Preço de Venda</label>
+        <div class="control">
+            <%= f.input :sale_price,label: false ,input_html: {class: 'input'}%>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Valor</label>
+        <div class="control">
+            <%= f.input :value,label: false ,input_html: {class: 'input'}%>
+        </div>
+    </div>
+    <div class= "control">
+        <%= f.button :submit ,class: "button is-primary"%>
+    </div>
   </div>
 <% end %>
+
