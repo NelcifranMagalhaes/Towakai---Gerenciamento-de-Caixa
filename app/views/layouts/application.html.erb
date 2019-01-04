@@ -1,59 +1,84 @@
 <!DOCTYPE html>
+<html>
 
-<html lang="pt-br">
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>InventoryTowakai</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-  </head>
-  
-  <body>
-    <nav class="navbar">
-         <div class="container">
-             <div class="navbar-brand">
-                <%= link_to root_path,class: "navbar-item" do%>
-                      Inventory
-                    <% end %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+</head>
 
-                    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-                      <span aria-hidden="true"></span>
-                      <span aria-hidden="true"></span>
-                      <span aria-hidden="true"></span>
-                    </a>
-             </div>
-             <div class="navbar-menu" id="navMenu">
-                 <div class="navbar-end">
-                  <div class="navbar-item">
-                    <div class="field is-grouped">
-                      <p class="control">
-                        <%= link_to("Produtos", products_path ,class: "bd-tw-button button") %>
-                      </p>
-                      <p class="control">
-                        <%= link_to("Clientes", clients_path ,class: "bd-tw-button button") %>
-                      </p>
-                    </div>
-                  </div>
-                 </div>
-             </div>
-         </div>
-    </nav>
-
-    <div class="container">
-        <div id="flow">
-            <span class="flow-1"></span>
-            <span class="flow-2"></span>
-            <span class="flow-3"></span>
-        </div>
-        <div class="section">
-              <%= yield %>
+<body>
+  <!-- START NAV -->
+  <nav class="navbar is-white">
+      <div class="container">
+          <div class="navbar-brand">
+              <%= link_to "Towakai Admin", root_path ,class: "navbar-item brand-text" %>
+              <div class="navbar-burger burger" data-target="navMenu">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+          </div>
+          <div id="navMenu" class="navbar-menu">
+              <div class="navbar-start">
+                <%= link_to "Clientes", clients_path ,class: "navbar-item" %>
+                <%= link_to "Produtos", clients_path ,class: "navbar-item" %>
+                <a class="navbar-item" href="admin.html">
+                  Estatisticas
+                </a>
+              </div>
+          </div>
       </div>
-    </div>
+  </nav>
+  <!-- END NAV -->
+  <div class="container">
+      <div class="columns">
+          <div class="column is-3 ">
+              <aside class="menu is-hidden-mobile">
+                  <p class="menu-label">
+                      General
+                  </p>
+                  <ul class="menu-list">
+                      <li><a class="is-active">Dashboard</a></li>
+                      <li><a>Customers</a></li>
+                  </ul>
+                  <p class="menu-label">
+                      Administration
+                  </p>
+                  <ul class="menu-list">
+                      <li><a>Team Settings</a></li>
+                      <li>
+                          <a>Manage Your Team</a>
+                          <ul>
+                              <li><a>Members</a></li>
+                              <li><a>Plugins</a></li>
+                              <li><a>Add a member</a></li>
+                          </ul>
+                      </li>
+                      <li><a>Invitations</a></li>
+                      <li><a>Cloud Storage Environment Settings</a></li>
+                      <li><a>Authentication</a></li>
+                  </ul>
+                  <p class="menu-label">
+                      Transactions
+                  </p>
+                  <ul class="menu-list">
+                      <li><a>Payments</a></li>
+                      <li><a>Transfers</a></li>
+                      <li><a>Balance</a></li>
+                  </ul>
+              </aside>
+          </div>
+          <div class="column is-9">
+            <%= yield %>
+          </div>
+      </div>
+  </div>
 
-  </body>
-</html>
-
+</body>
