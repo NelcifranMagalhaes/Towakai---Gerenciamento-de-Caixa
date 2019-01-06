@@ -19,7 +19,9 @@
       <tr>
         <td><%=l pc.date_sale %></td>
         <td><%= pc.client.name %></td>
-        <td><%= pc.product.name %></td>
+        <td>
+          <%= pc.products %>
+        </td>
         <td><%= link_to 'Ver', pc ,class: "button is-small is-primary"%></td>
         <td><%= link_to 'Editar', edit_product_client_path(pc) ,class: "button is-small is-info"%></td>
         <td><%= link_to 'Deletar', pc,class: "button is-small is-danger ", method: :delete, data: { confirm: 'Você tem certeza?' } %></td>

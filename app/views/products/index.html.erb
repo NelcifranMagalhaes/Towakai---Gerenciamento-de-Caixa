@@ -8,10 +8,10 @@
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Valor</th>
       <th>Preço de custo</th>
       <th>Taxas</th>
       <th>Preço de venda</th>
+      <th>Quantidade</th>
       <th colspan="3">#</th>
     </tr>
   </thead>
@@ -20,10 +20,10 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= product.value %></td>
         <td><%= product.cost_price %></td>
         <td><%= product.tax %></td>
         <td><%= product.sale_price %></td>
+        <td><%= product.quantity %></td>
         <td><%= link_to 'Ver', product ,class: "button is-small is-primary"%></td>
         <td><%= link_to 'Editar', edit_product_path(product) ,class: "button is-small is-info"%></td>
         <td><%= link_to 'Deletar', product,class: "button is-small is-danger ", method: :delete, data: { confirm: 'Você tem certeza?' } %></td>

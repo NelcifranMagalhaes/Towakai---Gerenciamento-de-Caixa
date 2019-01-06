@@ -13,6 +13,7 @@ pt-BR:
         cost_price: Preço de Custo
         tax: Taxas
         sale_price: Preço de Venda
+        quantity: Quantidade
 
       client:
         name: Nome

@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 2019_01_03_140812) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.float "value"
     t.float "cost_price"
     t.float "tax"
     t.float "sale_price"
     t.string "name"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,11 +35,9 @@ ActiveRecord::Schema.define(version: 2019_01_03_140812) do
   create_table "products_clients", force: :cascade do |t|
     t.date "date_sale"
     t.bigint "client_id"
-    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_products_clients_on_client_id"
-    t.index ["product_id"], name: "index_products_clients_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|

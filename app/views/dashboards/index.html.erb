@@ -14,19 +14,19 @@
     <div class="tile is-ancestor has-text-centered">
         <div class="tile is-parent">
             <article class="tile is-child box">
-                <p class="title">439k</p>
+                <p class="title"><%= @clients.count  %></p>
                 <p class="subtitle">Clientes</p>
             </article>
         </div>
         <div class="tile is-parent">
             <article class="tile is-child box">
-                <p class="title">59k</p>
+                <p class="title"><%= @products.count  %></p>
                 <p class="subtitle">Produtos</p>
             </article>
         </div>
         <div class="tile is-parent">
             <article class="tile is-child box">
-                <p class="title">3.4k</p>
+                <p class="title"><%= @products_clients.count  %></p>
                 <p class="subtitle">Vendas</p>
             </article>
         </div>
@@ -38,7 +38,7 @@
         <div class="card events-card">
             <header class="card-header">
                 <p class="card-header-title">
-                    Events
+                    Clientes
                 </p>
                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
@@ -50,57 +50,19 @@
                 <div class="content">
                     <table class="table is-fullwidth is-striped">
                         <tbody>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
+                            <% @clients.each do |client| %>
+                                <tr>
+                                    <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                    <td><%= client.name %></td>
+                                    <td width="5%"><%= link_to 'Ver', client, class: "button is-small is-primary"%></td>
+                                </tr>
+                            <% end %>
                         </tbody>
                     </table>
                 </div>
             </div>
             <footer class="card-footer">
-                <a href="#" class="card-footer-item">View All</a>
+                <%= link_to 'Ver todos', clients_path ,class: "card-footer-item"%>
             </footer>
         </div>
     </div>
@@ -108,7 +70,7 @@
         <div class="card events-card">
             <header class="card-header">
                 <p class="card-header-title">
-                    Events
+                    Produtos
                 </p>
                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
@@ -120,57 +82,19 @@
                 <div class="content">
                     <table class="table is-fullwidth is-striped">
                         <tbody>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                <td>Lorum ipsum dolem aire</td>
-                                <td><a class="button is-small is-primary" href="#">Action</a></td>
-                            </tr>
+                            <% @products.each do |product| %>
+                                <tr>
+                                    <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                    <td><%= product.name %></td>
+                                    <td width="5%"><%= link_to 'Ver', product, class: "button is-small is-primary"%></td>
+                                </tr>
+                            <% end %>
                         </tbody>
                     </table>
                 </div>
             </div>
             <footer class="card-footer">
-                <a href="#" class="card-footer-item">View All</a>
+                <%= link_to 'Ver todos', products_path ,class: "card-footer-item"%>
             </footer>
         </div>
     </div>

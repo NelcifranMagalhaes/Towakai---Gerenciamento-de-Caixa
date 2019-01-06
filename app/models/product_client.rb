@@ -1,4 +1,7 @@
 class ProductClient < ApplicationRecord
 	belongs_to :client
-	belongs_to :product
+	has_many :products
+
+	validates :date_sale,presence: true
+	
 end
