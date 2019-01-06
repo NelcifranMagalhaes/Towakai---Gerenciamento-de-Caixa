@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_01_03_140812) do
   end
 
   create_table "products_clients", force: :cascade do |t|
+    t.date "date_sale"
     t.bigint "client_id"
     t.bigint "product_id"
     t.datetime "created_at", null: false

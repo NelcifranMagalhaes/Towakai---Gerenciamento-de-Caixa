@@ -1,0 +1,45 @@
+# encoding: UTF-8
+pt-BR:
+  activerecord:
+    models:
+      product: Produto 
+      client: Cliente 
+      product_client: Venda 
+      user: Usuário
+
+    attributes:  
+      product:
+        name: Nome
+        cost_price: Preço de Custo
+        tax: Taxas
+        sale_price: Preço de Venda
+
+      client:
+        name: Nome
+        address: Endereço
+
+      product_client:
+        name: Nome
+        date_sale: Data da Venda
+        client: Cliente
+        product: Produtos
+
+      user:
+        email: Email
+        password: Senha
+
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Nenhum %{entry_name} encontrado(a)"
+          one: "Exibindo <b>1</b> %{entry_name}"
+          other: "Exibindo <b>%{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"

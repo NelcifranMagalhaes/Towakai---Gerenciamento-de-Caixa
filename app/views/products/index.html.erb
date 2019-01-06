@@ -25,8 +25,8 @@
         <td><%= product.tax %></td>
         <td><%= product.sale_price %></td>
         <td><%= link_to 'Ver', product ,class: "button is-small is-primary"%></td>
-        <td><%= link_to 'Edit', edit_product_path(product) ,class: "button is-small is-info"%></td>
-        <td><%= link_to 'Destroy', product,class: "button is-small is-danger ", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_product_path(product) ,class: "button is-small is-info"%></td>
+        <td><%= link_to 'Deletar', product,class: "button is-small is-danger ", method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
