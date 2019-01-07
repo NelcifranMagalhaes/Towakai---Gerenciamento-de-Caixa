@@ -75,3 +75,4 @@ gem 'devise'
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 #https://github.com/stympy/faker
 gem 'faker'
+gem "select2-rails"

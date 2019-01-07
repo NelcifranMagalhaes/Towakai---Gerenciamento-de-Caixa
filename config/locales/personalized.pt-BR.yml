@@ -4,8 +4,8 @@ pt-BR:
     models:
       product: Produto 
       client: Cliente 
-      product_client: Venda 
       user: Usuário
+      sale: Venda
 
     attributes:  
       product:
@@ -19,15 +19,13 @@ pt-BR:
         name: Nome
         address: Endereço
 
-      product_client:
-        name: Nome
-        date_sale: Data da Venda
-        client: Cliente
-        product: Produtos
-
       user:
         email: Email
         password: Senha
+
+      sale:
+        sale_date: Data da Venda
+        client: Cliente
 
     pagination:
       first: "&laquo;"

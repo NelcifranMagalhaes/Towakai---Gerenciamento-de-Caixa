@@ -9,5 +9,6 @@ $(document).ready(function() {
     });
 })();
 
+	$( ".productsSelect" ).select2();
 
  });
