@@ -1,4 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_sale_path(@sale) %> |
-<%= link_to 'Back', sales_path %>
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Dados
+    </p>
+    <a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fa fa-table" aria-hidden="true"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      	<span class="tag is-light is-medium">Cliente:</span>
+      	<%= @sale.client.name  %>
+      &nbsp;
+      	<span class="tag is-light is-medium">Data:</span>
+		<%=l @sale.sale_date  %>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Produtos
+    </p>
+    <a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fa fa-product-hunt" aria-hidden="true"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+		<% @sale.orders.each do |orde|%>
+			<div class="content">
+			  <ol type="1">
+			    <li><%= orde.product.name %></li>
+			  </ol>
+			 </div> 
+		<% end %>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="field is-grouped is-grouped-right column is-4 is-offset-8">
+    <p class="control">
+    <%= link_to 'Editar',edit_sale_path(@sale),class: "button is-primary" %>
+    </p>
+    <p class="control">
+    <%= link_to 'Voltar', sales_path ,class: "button is-info is-inverted"%>
+    </p>
+  </div>
+</div>

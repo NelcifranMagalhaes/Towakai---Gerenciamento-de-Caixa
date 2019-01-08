@@ -1,29 +1,48 @@
 <p id="notice"><%= notice %></p>
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child box">
+          <p class="title">Quantidade</p>
+          <p class="subtitle"><%= @product.quantity %></p>
+        </article>
+        <article class="tile is-child box">
+          <p class="title">Nome</p>
+          <p class="subtitle"><%= @product.name %></p>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child box">
+          <p class="title">Preço de Custo</p>
+          <p class="subtitle">R$ <%= @product.cost_price %></p>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <p class="title">Taxas</p>
+        <p class="subtitle">R$ <%= @product.tax %></p>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <div class="content">
+        <p class="title">Preço de Venda</p>
+        <p class="subtitle">R$ <%= @product.sale_price %></p>
+      </div>
+    </article>
+  </div>
+</div>
 
-<p>
-  <strong>Value:</strong>
-  <%= @product.quantity %>
-</p>
-
-<p>
-  <strong>Cost price:</strong>
-  <%= @product.cost_price %>
-</p>
-
-<p>
-  <strong>Tax:</strong>
-  <%= @product.tax %>
-</p>
-
-<p>
-  <strong>Sale price:</strong>
-  <%= @product.sale_price %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="columns">
+  <div class="field is-grouped is-grouped-right column is-4 is-offset-8">
+    <p class="control">
+    <%= link_to 'Editar',edit_product_path(@product),class: "button is-primary" %>
+    </p>
+    <p class="control">
+    <%= link_to 'Voltar', products_path ,class: "button is-info is-inverted"%>
+    </p>
+  </div>
+</div>

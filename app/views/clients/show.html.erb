@@ -1,14 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @client.address %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<div class="tile is-ancestor">
+  <div class="tile is-4 is-vertical is-parent">
+    <div class="tile is-child box">
+      <p class="title">Nome</p>
+      <p><%= @client.name %></p>
+    </div>
+    <div class="tile is-child box">
+      <p class="title">Endereço</p>
+      <p><%= @client.address %></p>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p class="title">Compras</p>
+      <%@client.sales.each do |s|  %>
+		<div class="card">
+		  <header class="card-header">
+		    <p class="card-header-title">
+		      <%=l s.sale_date  %>
+		    </p>
+		      <span class="icon">
+		        <i class="fa fa-calendar" aria-hidden="true"></i>
+		      </span>
+		  </header>
+		  <div class="card-content">
+		    <div class="content">
+		    	<% s.orders.each do |ord| %>
+		    		<p><%= ord.product.name %></p>
+		    	<% end %>
+		      <br>
+		    </div>
+		  </div>
+		</div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="columns">
+	<div class="field is-grouped is-grouped-right column is-4 is-offset-8">
+	  <p class="control">
+		<%= link_to 'Editar',edit_client_path(@client),class: "button is-primary" %>
+	  </p>
+	  <p class="control">
+		<%= link_to 'Voltar', clients_path ,class: "button is-info is-inverted"%>
+	  </p>
+	</div>
+</div>

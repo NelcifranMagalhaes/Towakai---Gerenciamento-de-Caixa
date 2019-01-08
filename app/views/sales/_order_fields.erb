@@ -1,0 +1,30 @@
+<div class="nested-fields">
+	<div class="tile is-parent">
+		<div class="tile is-child box">
+			<div class="field is-horizontal">
+				<div class="field-body">
+					<div class="field">
+						<label class="label">Produto</label>
+						<div class="control">
+							<%= f.association :product, as: :select,collection: Product.all ,label_method: :name, value_method: :id,input_html: {class: 'select big-select2'}%>
+						</div>
+					</div>
+
+					<div class="field">
+						<label class="label">Quantidade</label>
+						<div class="control">
+							<%= f.input :quant,label: false ,input_html: {class: 'input'}%>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="field is-grouped is-grouped-right">
+			  <p class="control">
+				<%= link_to_remove_association "remover Produto", f ,class: "button is-danger"%>   
+			  </p>
+			</div>
+			<br>
+		</div>
+	</div>
+</div>

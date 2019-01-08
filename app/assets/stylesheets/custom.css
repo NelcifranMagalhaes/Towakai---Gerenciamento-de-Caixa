@@ -80,3 +80,14 @@ nav.navbar {
   max-height: 250px;
   overflow-y: scroll;
 }
+
+.big-select1 {
+  padding-right: 14.5em!important;
+}
+.big-select2 {
+  padding-right: 6.5em!important;
+}
+
+.table th {
+    text-align: center;
+}

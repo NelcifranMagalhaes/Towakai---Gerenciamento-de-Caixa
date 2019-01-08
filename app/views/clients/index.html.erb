@@ -5,28 +5,29 @@
   </div>
 </article>  
 
-<table class="table is-fullwidth is-striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Endereço</th>
-      <th colspan="3">#</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clients.each do |client| %>
+ <div class="table-container">  
+  <table class="table is-striped is-flex-tablet-only">
+    <thead>
       <tr>
-        <td width="5%"><%= client.name %></td>
-        <td width="5%"><%= client.address %></td>
-        <td width="5%"><%= link_to 'Ver', client, class: "button is-small is-primary"%></td>
-        <td width="5%"><%= link_to 'Editar', edit_client_path(client),class: "button is-small is-info" %></td>
-        <td width="5%"><%= link_to 'Deletar', client,class: "button is-small is-danger ", method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th colspan="3">#</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td width="5%"><%= client.name %></td>
+          <td width="5%"><%= client.address %></td>
+          <td width="5%"><%= link_to 'Ver', client, class: "button is-small is-primary"%></td>
+          <td width="5%"><%= link_to 'Editar', edit_client_path(client),class: "button is-small is-info" %></td>
+          <td width="5%"><%= link_to 'Deletar', client,class: "button is-small is-danger ", method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 
 <%= link_to 'Novo Cliente', new_client_path,class: "button is-link" %>

@@ -8,8 +8,8 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.singular /^(ox)en/i, '\1'
 #   inflect.irregular 'person', 'people'
 #   inflect.uncountable %w( fish sheep )
-	inflect.irregular 'product_client', 'products_clients'
-	inflect.irregular 'ProductClient', 'ProductsClients'
+	# inflect.irregular 'product_sale', 'products_sales'
+	# inflect.irregular 'ProductSale', 'ProductsSales'
 end
 
 # These inflection rules are supported but not enabled by default:

@@ -8,21 +8,29 @@
             <%= f.input :sale_date,html5: true,label: false ,input_html: {class: 'input'}%>
         </div>
     </div>
-    <div class="field column is-one-third">
+    <div class="field column is-half">
         <label class="label">Cliente</label>
         <div class="control">
-            <%= f.association :client,label: false ,input_html: {class: 'select'}%>
+            <%= f.association :client,label: false ,input_html: {class: 'select big-select'}%>
         </div>
     </div>
   </div>
-  <div class="columns">
+
+  <article class="message is-dark">
+    <div class="message-header">
+      <p>Produtos</p>
+    </div>
+   </article>
+
+    <div class="field" id ="orders">
+      <%= f.simple_fields_for :orders do |c| %>
+        <%= render 'order_fields', f: c %>
+      <% end %>
+    </div>
     <div class="field">
-        <label class="label">Produtos</label>
-        <div class="control">
-            <%= f.association :products,as: :select,multiple: true,label: false ,input_html: {class: 'select is-multiple productsSelect'}%>
-        </div>
+      <%= link_to_add_association '+Produtos', f, :orders,class: "button is-success"%>
     </div>
-  </div>
+
   <div class="columns">
     <div class="field is-grouped is-grouped-right column is-4 is-offset-8">
       <p class="control">
