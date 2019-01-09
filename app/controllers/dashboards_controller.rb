@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
 	def index
-		@products = Product.all
-		@clients = Client.all
-		@sales = Sale.all
+		@products = Product.last(10)
+		@clients = Client.last(10)
+		@sales = Sale.last(10)
 	end
 end

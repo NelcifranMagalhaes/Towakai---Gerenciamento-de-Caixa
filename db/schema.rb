@@ -31,9 +31,12 @@ ActiveRecord::Schema.define(version: 2019_01_08_133456) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.float "cost_price"
-    t.float "tax"
-    t.float "sale_price"
+    t.integer "cost_price_cents", default: 0, null: false
+    t.string "cost_price_currency", default: "BRL", null: false
+    t.integer "tax_cents", default: 0, null: false
+    t.string "tax_currency", default: "BRL", null: false
+    t.integer "sale_price_cents", default: 0, null: false
+    t.string "sale_price_currency", default: "BRL", null: false
     t.string "name"
     t.integer "quantity"
     t.datetime "created_at", null: false

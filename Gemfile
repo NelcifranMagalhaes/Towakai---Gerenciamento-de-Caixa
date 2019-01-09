@@ -81,3 +81,5 @@ gem "cocoon"
 gem 'kaminari'
 # Object-based searching. http://ransack-demo.herokuapp.com
 gem 'ransack'
+# https://github.com/RubyMoney/money-rails
+gem 'money-rails', '~>1.12'
