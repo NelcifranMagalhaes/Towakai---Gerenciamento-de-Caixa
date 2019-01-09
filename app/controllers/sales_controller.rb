@@ -5,6 +5,8 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @sales = Sale.all
+    @q = @sales.ransack(params[:q])
+    @sales = @q.result.page(params[:page]).per(10)
   end
 
   # GET /sales/1

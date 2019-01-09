@@ -4,6 +4,36 @@
     <p>Produtos</p>
   </div>
 </article>
+
+<div class="box">
+<%= search_form_for @q, url: products_path, html: {method: :get} do |f| %>
+<div class="field-body">
+    <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+            <%= f.search_field :name_cont,class: 'input',label: false %>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Quantidade</label>
+        <div class="control">
+            <%= f.search_field :quantity_eq,class: 'input',label: false %>
+        </div>
+    </div>
+  </div>
+  <div class= "field">
+      <div class="control">
+      </div>
+  </div>
+  <div class="field-body">
+     <div class="field">
+       <div class="control">
+        <%= f.submit "Pesquisar", class: 'button is-primary' %>
+       </div>
+     </div>
+   </div>
+<% end %>
+<br>
  <div class="table-container">  
   <table class="table is-striped is-flex-tablet-only">
     <thead>
@@ -33,5 +63,11 @@
     </tbody>
   </table>
 </div>
-<br>
+
+ <div class="box">
+   <div class="columns is-gapless is-multiline is-mobile">
+     <%= paginate @products %>
+   </div>
+</div>
 <%= link_to 'Novo Produto', new_product_path,class: "button is-link" %>
+</div>
