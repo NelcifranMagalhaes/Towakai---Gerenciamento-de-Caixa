@@ -16,5 +16,6 @@
 //= require rails-ujs
 //= require select2
 //= require cocoon
+//= require jquery.maskMoney.min
 //= require activestorage
 //= require_tree .

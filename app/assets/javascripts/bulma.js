@@ -11,4 +11,13 @@ $(document).ready(function() {
 
 	$( ".productsSelect" ).select2();
 
+	$('.money').maskMoney({
+	    prefix: 'R$ ',
+	    thousands: '.',
+	    decimal: ',',
+	    allowZero: true,
+	    allowEmpty: true,
+	    affixesStay: true
+	});
+
  });
