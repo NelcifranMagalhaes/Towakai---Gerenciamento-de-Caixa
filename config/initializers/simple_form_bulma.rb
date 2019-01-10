@@ -54,5 +54,5 @@ SimpleForm.setup do |config|
       super.push('textarea')
     end
   end
-
+  
 end

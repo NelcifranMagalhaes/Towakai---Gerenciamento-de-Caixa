@@ -20,4 +20,10 @@ $(document).ready(function() {
 	    affixesStay: true
 	});
 
+	$( ".delete" ).click(function(){
+
+		$(".notification").toggle();
+
+	});
+
  });
