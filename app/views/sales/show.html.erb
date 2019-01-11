@@ -21,29 +21,24 @@
     </div>
   </div>
 </div>
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      Produtos
-    </p>
-    <a href="#" class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fa fa-product-hunt" aria-hidden="true"></i>
-      </span>
-    </a>
-  </header>
-  <div class="card-content">
-    <div class="content">
-		<% @sale.orders.each do |orde|%>
-			<div class="content">
-			  <ol type="1">
-			    <li><%= orde.product.name %></li>
-			  </ol>
-			 </div> 
-		<% end %>
-    </div>
-  </div>
-</div>
+
+<table class="table is-striped is-flex-tablet-only is-fullwidth">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+    <tbody>
+        <% @sale.orders.each do |orde|%>
+            <tr>
+                <td><%= orde.product.name %></td>
+                <td><%= orde.quant %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
 
 <div class="columns">
   <div class="field is-grouped is-grouped-right column is-4 is-offset-8">

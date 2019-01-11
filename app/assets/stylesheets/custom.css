@@ -91,3 +91,7 @@ nav.navbar {
 .table th {
     text-align: center;
 }
+
+.table tr td {
+ text-align:center;
+}

@@ -1,6 +1,7 @@
 <%= simple_form_for(@sale) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <% @sale.errors.full_messages.each do |msg|%>
+  <%= msg %>
+  <% end %>
   <div class="columns">
     <div class="field column is-one-third">
         <label class="label">Data da Venda</label>

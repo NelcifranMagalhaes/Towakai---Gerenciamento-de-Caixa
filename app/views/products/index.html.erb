@@ -35,7 +35,7 @@
 <% end %>
 <br>
  <div class="table-container">  
-  <table class="table is-striped is-flex-tablet-only">
+  <table class="table is-striped is-flex-tablet-only is-fullwidth">
     <thead>
       <tr>
         <th>Nome</th>
@@ -55,9 +55,9 @@
           <td><%= product.tax %></td>
           <td><%= product.sale_price %></td>
           <td><%= product.quantity %></td>
-          <td><%= link_to 'Ver', product ,class: "button is-small is-primary"%></td>
-          <td><%= link_to 'Editar', edit_product_path(product) ,class: "button is-small is-info"%></td>
-          <td><%= link_to 'Deletar', product,class: "button is-small is-danger ", method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+          <td>
+            <%= render 'shared/action_links', object: product %>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -1,0 +1,12 @@
+<%= link_to object, data: { toggle: 'tooltip', placement: 'top', title: 'Visualizar' }, class: 'button is-primary' do %>
+  <i class="fa fa-eye"></i>
+<% end %>
+&nbsp;
+
+<%= link_to eval("edit_#{object.class.to_s.underscore}_path(#{object.id})"), data: { toggle: 'tooltip', placement: 'top', title: 'Editar' }, class: 'button is-warning' do %>
+  <i class="fa fa-pencil"></i>
+<% end %>
+&nbsp;
+<%= link_to object, method: :delete, data: { confirm: 'Tem certeza?', toggle: 'tooltip', placement: 'top', title: 'Apagar' }, class: 'button is-danger' do %>
+  <i class="fa fa-trash"></i>
+<% end %>

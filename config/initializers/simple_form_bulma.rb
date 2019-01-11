@@ -21,6 +21,8 @@ SimpleForm.setup do |config|
       ba.optional :label,
                   :class      => 'label',
                   :wrap_with  => { tag: 'label', class: 'label' }
+    b.use :error, :wrap_with => { :tag => :notification, :class => :error }
+
     end
 
     #
