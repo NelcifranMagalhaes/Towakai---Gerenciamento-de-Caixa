@@ -1,44 +1,46 @@
-<article class="message is-dark">
-  <div class="message-header">
-    <p>Cadastro</p>
-</div>
- </article>
+<div class="column is-half is-offset-one-quarter">
+  <article class="message is-dark">
+    <div class="message-header">
+      <p>Cadastro</p>
+  </div>
+   </article>
 
-<div class="box">
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <% if f.error_notification.present? %>
-      <div class="notification is-success">
-        <button class="delete"></button>
-        <%= f.error_notification %>
-      </div>
+  <div class="box">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <% if f.error_notification.present? %>
+        <div class="notification is-success">
+          <button class="delete"></button>
+          <%= f.error_notification %>
+        </div>
+    <% end %>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <%= fa_icon "envelope", text: "Email", right: true %>
+        <%= f.input :email,input_html: { class: 'input'}, required: true, autofocus: true ,placeholder:"Email"%>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control has-icons-left">
+        <%= fa_icon "lock", text: "Senha", right: true %>
+        <%= f.input :password,input_html: { class: 'input'} ,placeholder: "Senha", required: true %>
+      </p>
+    </div>
+
+
+    <div class="field">
+      <p class="control has-icons-left">
+        <%= fa_icon "lock", text: "Confirmação da Senha", right: true %>
+        <%= f.input :password_confirmation,required: true,input_html: { class: 'input'} ,placeholder: "Confirmação da Senha", required: true %>
+      </p>
+    </div>
+    <div class="buttons">
+      <%= f.button :submit, "Enviar" ,class: "button is-link"%>
+
+      <%= link_to "Já tem Cadastro", new_session_path(resource_name) ,class: "button"%><br />
+
+    </div>
+
   <% end %>
-  <div class="field">
-    <p class="control has-icons-left has-icons-right">
-      <%= fa_icon "envelope", text: "Email", right: true %>
-      <%= f.input :email,input_html: { class: 'input'}, required: true, autofocus: true ,placeholder:"Email"%>
-    </p>
   </div>
-
-  <div class="field">
-    <p class="control has-icons-left">
-      <%= fa_icon "lock", text: "Senha", right: true %>
-      <%= f.input :password,input_html: { class: 'input'} ,placeholder: "Senha", required: true %>
-    </p>
-  </div>
-
-
-  <div class="field">
-    <p class="control has-icons-left">
-      <%= fa_icon "lock", text: "Confirmação da Senha", right: true %>
-      <%= f.input :password_confirmation,required: true,input_html: { class: 'input'} ,placeholder: "Confirmação da Senha", required: true %>
-    </p>
-  </div>
-  <div class="buttons">
-    <%= f.button :submit, "Enviar" ,class: "button is-link"%>
-
-    <%= link_to "Já tem Cadastro", new_session_path(resource_name) ,class: "button"%><br />
-
-  </div>
-
-<% end %>
 </div>

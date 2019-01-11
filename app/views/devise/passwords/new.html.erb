@@ -1,23 +1,24 @@
-<article class="message is-dark">
-  <div class="message-header">
-      <p>Esqueceu a senha ?</p>
-  </div>
-</article>
+<div class="column is-half is-offset-one-quarter">
 
-<div class="box">
-
-  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= f.error_notification %>
-    <div class="field">
-      <p class="control has-icons-left has-icons-right">
-        <%= f.input :email,input_html: { class: 'input'}, required: true, autofocus: true ,placeholder:"Email"%>
-      </p>
+  <article class="message is-dark">
+    <div class="message-header">
+        <p>Esqueceu a senha ?</p>
     </div>
+  </article>
 
-      <div class="buttons">
-        <%= f.button :submit, "Enviar" ,class: "button is-link"%>
-        <%= link_to "Já tem Cadastro", new_session_path(resource_name) ,class: "button"%><br />
+  <div class="box">
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <%= f.input :email,input_html: { class: 'input'}, required: true, autofocus: true ,placeholder:"Email"%>
+        </p>
       </div>
 
-  <% end %>
+        <div class="buttons">
+          <%= f.button :submit, "Enviar" ,class: "button is-link"%>
+          <%= link_to "Já tem Cadastro", new_session_path(resource_name) ,class: "button"%><br />
+        </div>
+    <% end %>
+  </div>
 </div>

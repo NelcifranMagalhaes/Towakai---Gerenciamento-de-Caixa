@@ -1,45 +1,47 @@
-<article class="message is-dark">
-  <div class="message-header">
-    <p>Entrar</p>
-</div>
- </article>
-
-<div class="box">
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= bulma_flash %>
-  <div class="field">
-    <p class="control has-icons-left has-icons-right">
-      <%= fa_icon "envelope", text: "Email", right: true %>
-      <%= f.input :email,input_html: { class: 'input'}, required: true, autofocus: true ,placeholder:"Email"%>
-    </p>
+<div class="column is-half is-offset-one-quarter">
+  <article class="message is-dark">
+    <div class="message-header">
+      <p>Entrar</p>
   </div>
-
-  <div class="field">
-    <p class="control has-icons-left">
-      <%= fa_icon "lock", text: "Senha", right: true %>
-      <%= f.input :password,input_html: { class: 'input'} ,placeholder: "Password", required: true %>
-    </p>
-  </div>
-
-  <br></br>
-    <div class="field">
-        <p class="control">
-            <div class="b-checkbox is-warning is-circular">
-              <label class="checkbox">
-                <%= f.input :remember_me,label: 'Lembrar-me',wrapper: "boolean",as: :boolean if devise_mapping.rememberable? %>
-              </label>
-            </div>
+   </article>
+    
+  <div class="box">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= bulma_flash %>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <%= fa_icon "envelope", text: "Email", right: true %>
+          <%= f.input :email,input_html: { class: 'input'}, required: true, autofocus: true ,placeholder:"Email"%>
         </p>
-    </div>
+      </div>
 
-    <div class="buttons">
-      <%= f.button :submit, "Entrar" ,class: "button is-link"%>
+      <div class="field">
+        <p class="control has-icons-left">
+          <%= fa_icon "lock", text: "Senha", right: true %>
+          <%= f.input :password,input_html: { class: 'input'} ,placeholder: "Password", required: true %>
+        </p>
+      </div>
 
-        <%= link_to "Cadastrar-se", new_registration_path(resource_name),class: "button" %>
+      <br></br>
+        <div class="field">
+            <p class="control">
+                <div class="b-checkbox is-warning is-circular">
+                  <label class="checkbox">
+                    <%= f.input :remember_me,label: 'Lembrar-me',wrapper: "boolean",as: :boolean if devise_mapping.rememberable? %>
+                  </label>
+                </div>
+            </p>
+        </div>
 
-        <%= link_to "Esqueceu a senha?", new_password_path(resource_name),class: "button is-danger" %>
+        <div class="buttons">
+          <%= f.button :submit, "Entrar" ,class: "button is-link"%>
 
-    </div>
+            <%= link_to "Cadastrar-se", new_registration_path(resource_name),class: "button" %>
 
-<% end %>
+            <%= link_to "Esqueceu a senha?", new_password_path(resource_name),class: "button is-danger" %>
+
+        </div>
+
+    <% end %>
+  </div>
 </div>

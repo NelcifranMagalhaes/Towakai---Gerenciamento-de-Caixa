@@ -20,32 +20,31 @@
       <div class="container">
           <div class="navbar-brand">
               <%= link_to "Towakai Admin", root_path ,class: "navbar-item brand-text" %>
-              <div class="navbar-burger burger" data-target="navMenu">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                <% if current_user.present? %>
+                  <div class="navbar-burger burger" data-target="navMenu">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
               </div>
-          </div>
-  
-       <% if current_user.present? %>
-          <div id="navMenu" class="navbar-menu">
-              <div class="navbar-start">
-                <%= link_to "Clientes", clients_path ,class: "navbar-item" %>
-                <%= link_to "Produtos", products_path ,class: "navbar-item" %>
-                <%= link_to "Vendas", sales_path ,class: "navbar-item" %>
-                <a class="navbar-item" href="admin.html">
-                  Estatisticas
-                </a>
-              </div>
-              <div class="navbar-end">
-                   <span class="navbar-item"><%=current_user.email %></span>
-                     <div class="navbar-item has-dropdown is-hoverable">
-                         <%= link_to('Sair'.html_safe,  destroy_user_session_path , method: 'delete',class: 'navbar-link')%>
-                     </div>
-              </div>
-          </div>
-        <% end %>
-
+      
+                  <div id="navMenu" class="navbar-menu">
+                      <div class="navbar-start">
+                        <%= link_to "Clientes", clients_path ,class: "navbar-item" %>
+                        <%= link_to "Produtos", products_path ,class: "navbar-item" %>
+                        <%= link_to "Vendas", sales_path ,class: "navbar-item" %>
+                        <a class="navbar-item" href="admin.html">
+                          Estatisticas
+                        </a>
+                      </div>
+                      <div class="navbar-end">
+                           <span class="navbar-item"><%=current_user.email %></span>
+                             <div class="navbar-item has-dropdown is-hoverable">
+                                 <%= link_to('Sair'.html_safe,  destroy_user_session_path , method: 'delete',class: 'navbar-link')%>
+                             </div>
+                      </div>
+                    </div>
+              <% end %>
       </div>
   </nav>
   <!-- END NAV -->
