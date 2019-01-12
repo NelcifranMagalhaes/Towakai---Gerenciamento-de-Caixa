@@ -1,4 +1,15 @@
-<span class="tag is-primary is-medium">Número de vendas por mês</span>
+<h4 class="title is-4">
+	<span class="tag is-primary is-medium">Número de vendas por mês</span>
+</h4>
+
 <div class="box">
 	<%= line_chart Sale.group_by_month(:sale_date).count %>
+</div>
+
+<h4 class="title is-4">
+	<span class="tag is-primary is-medium">Número de Compras por Clientes</span>
+</h4>
+
+<div class="box">
+	<%= line_chart Sale.joins(:client).group(:name).count %>
 </div>
