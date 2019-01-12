@@ -33,9 +33,7 @@
                         <%= link_to "Clientes", clients_path ,class: "navbar-item" %>
                         <%= link_to "Produtos", products_path ,class: "navbar-item" %>
                         <%= link_to "Vendas", sales_path ,class: "navbar-item" %>
-                        <a class="navbar-item" href="admin.html">
-                          Estatisticas
-                        </a>
+                        <%= link_to "Estatisticas", statistics_path ,class: "navbar-item" %>
                       </div>
                       <div class="navbar-end">
                            <span class="navbar-item"><%=current_user.email %></span>

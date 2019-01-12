@@ -1,0 +1,4 @@
+<span class="tag is-primary is-medium">Número de vendas por mês</span>
+<div class="box">
+	<%= line_chart Sale.group_by_month(:sale_date).count %>
+</div>

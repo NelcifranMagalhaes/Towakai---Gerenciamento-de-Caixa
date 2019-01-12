@@ -83,3 +83,7 @@ gem 'kaminari'
 gem 'ransack'
 # https://github.com/RubyMoney/money-rails
 gem 'money-rails', '~>1.12'
+# https://chartkick.com/
+gem "chartkick"
+# https://github.com/ankane/groupdate
+gem 'groupdate'
