@@ -1,0 +1,35 @@
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Usuários do Sistema</p>
+  </div>
+</article>
+
+<div class="box">
+   <div class="table-container">  
+    <table class="table is-striped is-flex-tablet-only is-fullwidth">
+      <thead>
+        <tr>
+          <th>email</th>
+          <th>Permissões</th>
+          <th>#</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |u| %>
+          <tr>
+            <td><%= u.email %></td>
+            <td>
+              <% u.roles.each do |r| %>
+              <%=r.name  %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to 'Editar', edit_user_path(u),class: "button" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

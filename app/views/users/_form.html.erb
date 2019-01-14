@@ -1,0 +1,41 @@
+
+<%= simple_form_for(@user) do |f| %>
+    <%= f.error_notification %>
+    <% if @user.errors.full_messages.size > 0 %>
+      <div class="notification is-warning">
+        <button class="delete"></button>
+      <% @user.errors.full_messages.each do |msg|%>
+        <ol>
+          <li class="nostyle"><%= msg %></li>
+        </ol>
+      <% end %>
+      </div>
+    <% end %>
+<br>
+<div class="box">
+  <div class="columns">
+    <div class="field column is-one-third">
+        <label class="label">Email</label>
+        <div class="control">
+            <%= f.input :email,label: false ,input_html: {class: 'input'}%>
+        </div>
+    </div>
+    <div class="field column is-half">
+        <label class="label">Permissões</label>
+        <div class="control">
+            <%= f.association :roles,label: false ,input_html: {class: 'select productsSelect'}%>
+        </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="field is-grouped is-grouped-right column is-4 is-offset-8">
+      <p class="control">
+        <%= f.button :submit ,class: "button is-primary"%>
+      </p>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+

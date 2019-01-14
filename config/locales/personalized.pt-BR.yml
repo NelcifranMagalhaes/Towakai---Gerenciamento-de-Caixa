@@ -42,3 +42,15 @@ pt-BR:
           other: "Exibindo <b>%{count}</b> %{entry_name}"
       more_pages:
         display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"
+
+  unauthorized:
+    manage:
+      all: "Você não está autorizado a fazer esta ação."
+    update:
+      client: "Você não está autorizado a atualizar clientes."
+      product: "Você não está autorizado a atualizar Produtos."
+      sale: "Você não está autorizado a atualizar Vendas."
+    create:
+      client: "Você não está autorizado a cadastrar Clientes."
+      product: "Você não está autorizado a cadastrar Produtos."
+      sale: "Você não está autorizado a cadastrar Vendas."

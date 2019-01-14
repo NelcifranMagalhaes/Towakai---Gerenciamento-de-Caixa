@@ -34,11 +34,14 @@
                         <%= link_to "Produtos", products_path ,class: "navbar-item" %>
                         <%= link_to "Vendas", sales_path ,class: "navbar-item" %>
                         <%= link_to "Estatisticas", statistics_path ,class: "navbar-item" %>
+                        <% if current_user.has_role?(:admin)%>
+                          <%= link_to "Usuários", users_path ,class: "navbar-item" %>
+                        <% end %>
                       </div>
                       <div class="navbar-end">
                            <span class="navbar-item"><%=current_user.email %></span>
                              <div class="navbar-item has-dropdown is-hoverable">
-                                 <%= link_to('Sair'.html_safe,  destroy_user_session_path , method: 'delete',class: 'navbar-link')%>
+                                 <%= link_to('Sair'.html_safe,  destroy_user_session_path() , method: 'delete',class: 'navbar-link')%>
                              </div>
                       </div>
                     </div>
@@ -53,7 +56,13 @@
           <span class="flow-3"></span>
       </div>
       <div class="section">
-            <%= yield %>
+        <% if notice.present? %>
+          <div class="notification is-success">
+            <button class="delete"></button>
+            <%= notice %>
+          </div>
+        <% end %>
+        <%= yield %>
     </div>
   </div>
 

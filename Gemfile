@@ -87,3 +87,7 @@ gem 'money-rails', '~>1.12'
 gem "chartkick"
 # https://github.com/ankane/groupdate
 gem 'groupdate'
+# https://github.com/RolifyCommunity/rolify
+gem "rolify"
+# https://github.com/CanCanCommunity/cancancan
+gem 'cancancan', '~> 2.0'

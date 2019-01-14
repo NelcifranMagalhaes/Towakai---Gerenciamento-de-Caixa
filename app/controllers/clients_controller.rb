@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-
   # GET /clients
   # GET /clients.json
   def index
