@@ -7,7 +7,6 @@ class Sale < ApplicationRecord
 	validates :sale_date, presence: true
 	validates :client, presence: true
 
-
 	def validation_of_quant
 		self.orders.each do |ord|
 			if ord.product.quantity < ord.quant

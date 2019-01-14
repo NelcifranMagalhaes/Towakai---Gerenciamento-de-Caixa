@@ -19,7 +19,7 @@ $(document).ready(function() {
 	    allowEmpty: true,
 	    affixesStay: true
 	});
-
+	
 	$( ".delete" ).click(function(){
 
 		$(".notification").toggle();
@@ -27,3 +27,6 @@ $(document).ready(function() {
 	});
 
  });
+
+
+

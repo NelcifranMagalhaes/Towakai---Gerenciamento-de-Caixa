@@ -21,17 +21,10 @@ SimpleForm.setup do |config|
       ba.optional :label,
                   :class      => 'label',
                   :wrap_with  => { tag: 'label', class: 'label' }
-    b.use :error, :wrap_with => { :tag => :notification, :class => :error }
+                  
+    b.use :error, wrap_with: { tag: 'span',class: 'tag is-danger' } #para mudar o style do error no campo
 
     end
-
-    #
-    #   %label.checkbox
-    #     %input{:type => "checkbox"}/
-    #     I agree to the
-    #     %a{:href => "#"} terms and conditions
-    # 
-    # 
 
   end
 

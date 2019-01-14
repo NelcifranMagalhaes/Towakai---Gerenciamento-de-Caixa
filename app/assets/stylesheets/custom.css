@@ -95,3 +95,7 @@ nav.navbar {
 .table tr td {
  text-align:center;
 }
+
+li.nostyle {
+    list-style-type: none;
+}

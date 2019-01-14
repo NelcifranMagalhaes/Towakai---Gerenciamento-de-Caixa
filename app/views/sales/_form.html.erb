@@ -1,7 +1,17 @@
 <%= simple_form_for(@sale) do |f| %>
-  <% @sale.errors.full_messages.each do |msg|%>
-  <%= msg %>
-  <% end %>
+    <%= f.error_notification %>
+    <% if @sale.errors.full_messages.size > 0 %>
+      <div class="notification is-warning">
+        <button class="delete"></button>
+      <% @sale.errors.full_messages.each do |msg|%>
+        <ol>
+          <li class="nostyle"><%= msg %></li>
+        </ol>
+      <% end %>
+      </div>
+    <% end %>
+
+<br>
   <div class="columns">
     <div class="field column is-one-third">
         <label class="label">Data da Venda</label>

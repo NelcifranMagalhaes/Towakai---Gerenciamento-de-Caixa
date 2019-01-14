@@ -52,7 +52,7 @@
                         <tbody>
                             <% @clients.each do |client| %>
                                 <tr>
-                                    <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                    <td width="5%"><%= fa_icon "user"%></td>
                                     <td><%= client.name %></td>
                                     <td width="5%"><%= link_to 'Ver', client, class: "button is-small is-primary"%></td>
                                 </tr>
@@ -84,7 +84,7 @@
                         <tbody>
                             <% @products.each do |product| %>
                                 <tr>
-                                    <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                    <td width="5%"><%= fa_icon "product-hunt"%></td>
                                     <td><%= product.name %></td>
                                     <td width="5%"><%= link_to 'Ver', product, class: "button is-small is-primary"%></td>
                                 </tr>

@@ -18,7 +18,7 @@ module BulmaFlashHelper
           class: "notification is-#{type}"
       }.merge(options)
 
-      close_button = content_tag(:button, raw("&times;"), type: "button", class: "delete is-small", "data-dismiss" => "message")
+      close_button = content_tag(:button, raw("&times;"), type: "button", class: "delete is-small")
 
       Array(message).each do |msg|
         text = content_tag(:div, close_button + msg, tag_options)
