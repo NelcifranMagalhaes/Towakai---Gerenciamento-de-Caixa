@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users do
-    get "/users/sign_out" , to:  "devise/sessions#destroy", :as => :destroy_user_session
-  end
+  devise_for :users
   resources :sales
   resources :clients
   resources :products
   # resources :products_clients
-  resources :users
+  resources :users,only:[:edit, :update, :index]
   # devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'dashboards#index'
