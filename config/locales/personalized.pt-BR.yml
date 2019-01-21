@@ -6,6 +6,7 @@ pt-BR:
       client: Cliente 
       user: Usuário
       sale: Venda
+      order: Produtos Adicionados
 
     attributes:  
       product:
