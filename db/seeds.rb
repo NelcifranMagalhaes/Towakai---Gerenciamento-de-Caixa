@@ -18,7 +18,7 @@ end
 puts "Criando Produtos"
 30.times do |index|
 	Product.create!(name: Faker::Commerce.product_name,
-		cost_price: Faker::Number.between(1, 100),tax: Faker::Number.between(1, 100),
+		cost_price: Faker::Number.between(1, 100),low_quantity: Faker::Number.between(1, 10),
 		sale_price: Faker::Number.between(100, 1000),quantity: Faker::Number.between(1, 100))
 end
 
