@@ -17,12 +17,6 @@
         </div>
     </div>
     <div class="field">
-        <label class="label">Taxas</label>
-        <div class="control">
-            <%= f.input :tax,label: false ,input_html: {class: 'input money'}%>
-        </div>
-    </div>
-    <div class="field">
         <label class="label">Preço de Venda</label>
         <div class="control">
             <%= f.input :sale_price,label: false ,input_html: {class: 'input money'}%>
@@ -32,6 +26,12 @@
         <label class="label">Quantidade</label>
         <div class="control">
             <%= f.input :quantity,label: false ,input_html: {class: 'input'}%>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Quantidade Mínima</label>
+        <div class="control">
+            <%= f.input :low_quantity,label: false ,input_html: {class: 'input'}%>
         </div>
     </div>
     <div class= "control">

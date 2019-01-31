@@ -1,6 +1,5 @@
 
-User.destroy_all
-puts "Deletando Usuários"
+
 Client.destroy_all
 puts "Deletando Clientes"
 Product.destroy_all
@@ -14,7 +13,7 @@ puts "Deletando Orders"
 
 puts "Criando Clientes"
 30.times do |index|
-	Client.create!(name: Faker::Name.name,address: Faker::Address.full_address)
+	Client.create!(name: Faker::Name.name,address: Faker::Address.full_address,email: Faker::Internet.email,phone: Faker::PhoneNumber.cell_phone,)
 end
 puts "Criando Produtos"
 30.times do |index|

@@ -15,10 +15,15 @@ pt-BR:
         tax: Taxas
         sale_price: Preço de Venda
         quantity: Quantidade
+        low_quantity: Quantidade Mínima
 
       client:
         name: Nome
         address: Endereço
+        email: Email
+        cpf: CPF
+        cnpj: CNPJ
+        phone: Telefone/Celular
 
       user:
         email: Email
