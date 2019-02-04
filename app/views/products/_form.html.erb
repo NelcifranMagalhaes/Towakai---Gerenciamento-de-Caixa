@@ -25,13 +25,13 @@
     <div class="field">
         <label class="label">Quantidade</label>
         <div class="control">
-            <%= f.input :quantity,label: false ,input_html: {class: 'input'}%>
+            <%= f.input :quantity,label: false ,input_html: {class: 'input',value: (f.object.quantity.present? ? f.object.quantity : 0) }%>
         </div>
     </div>
     <div class="field">
         <label class="label">Quantidade Mínima</label>
         <div class="control">
-            <%= f.input :low_quantity,label: false ,input_html: {class: 'input'}%>
+            <%= f.input :low_quantity,label: false ,input_html: {class: 'input', value: (f.object.low_quantity.present? ? f.object.low_quantity : 0) }%>
         </div>
     </div>
     <div class= "control">

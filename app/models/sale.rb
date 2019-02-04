@@ -15,7 +15,7 @@ class Sale < ApplicationRecord
 				self.orders.each do |ord|
 				  product_edit = Product.find_by(id: ord.product.id)#pegando o item
 				  product_quant = product_edit.quantity#pegando a quantidade atual do item
-				  product_edit.update(quantity: product_quant - ord.quant) #atualizando o produto
+				  product_edit.update_attribute(:quantity, product_quant - ord.quant) #atualizando o produto
 				end				
 			end
 		end
