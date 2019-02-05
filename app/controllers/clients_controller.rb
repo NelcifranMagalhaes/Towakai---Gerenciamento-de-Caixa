@@ -57,10 +57,17 @@ class ClientsController < ApplicationController
   # DELETE /clients/1
   # DELETE /clients/1.json
   def destroy
-    @client.destroy
-    respond_to do |format|
-      format.html { redirect_to clients_url, notice: 'Cliente Deletado.' }
-      format.json { head :no_content }
+    if @client.sales.size == 0
+      @client.destroy
+      respond_to do |format|
+        format.html { redirect_to clients_url, notice: 'Cliente Deletado.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to clients_url, notice: 'Cliente não pode ser deletado porque está em uma Venda.' }
+        format.json { head :no_content }
+      end
     end
   end
 

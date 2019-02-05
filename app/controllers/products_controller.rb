@@ -57,10 +57,17 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Produto Deletado.' }
-      format.json { head :no_content }
+    if @product.orders.size == 0
+      @product.destroy
+      respond_to do |format|
+        format.html { redirect_to products_url, notice: 'Produto Deletado.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to products_url, notice: 'Produto Não pode ser deletado,porque está em uma venda.' }
+        format.json { head :no_content }
+      end
     end
   end
 

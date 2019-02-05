@@ -9,7 +9,7 @@ class Sale < ApplicationRecord
 
 	def validation_of_quant
 		self.orders.each do |ord|
-			if ord.product.quantity < ord.quant
+			if (ord.product.quantity < ord.quant) || (ord.quant > ord.product.quantity - ord.product.low_quantity)
 				errors.add(:order, "Alguns dos produtos adicionados não possui a quantidade solicitada!!!!")
 			else
 				self.orders.each do |ord|

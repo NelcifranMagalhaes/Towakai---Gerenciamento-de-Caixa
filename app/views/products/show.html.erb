@@ -1,35 +1,42 @@
 <p id="notice"><%= notice %></p>
+
 <div class="tile is-ancestor">
-  <div class="tile is-vertical is-8">
-    <div class="tile">
-      <div class="tile is-parent is-vertical">
-        <article class="tile is-child box">
-          <p class="title">Quantidade</p>
-          <p class="subtitle"><%= @product.quantity %></p>
-        </article>
-        <article class="tile is-child box">
-          <p class="title">Quantidade Mńima</p>
-          <p class="subtitle"><%= @product.low_quantity %></p>
-        </article>
-        <article class="tile is-child box">
-          <p class="title">Nome</p>
-          <p class="subtitle"><%= @product.name %></p>
-        </article>
-      </div>
-      <div class="tile is-parent">
-        <article class="tile is-child box">
-          <p class="title">Preço de Custo</p>
-          <p class="subtitle">R$ <%= @product.cost_price %></p>
-        </article>
-      </div>
-    </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Quantidade</p>
+      <span class="tag is-info is-large"><%= @product.quantity %></span>
+    </article>
   </div>
   <div class="tile is-parent">
     <article class="tile is-child box">
-      <div class="content">
-        <p class="title">Preço de Venda</p>
-        <p class="subtitle">R$ <%= @product.sale_price %></p>
-      </div>
+      <p class="title">Quantidade Mínima</p>
+      <span class="tag is-info is-large"><%= @product.low_quantity %></span>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Quantidade Disponível pra Venda</p>
+      <span class="tag is-info is-large"><%= @product.quantity-@product.low_quantity %></span>
+    </article>
+  </div>
+</div>
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Nome</p>
+      <span class="tag is-info is-large"><%= @product.name %></span>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Preço de Custo</p>
+      <span class="tag is-info is-large"><%= @product.cost_price %></span>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Preço de Venda</p>
+      <span class="tag is-info is-large"><%= @product.sale_price %></span>
     </article>
   </div>
 </div>
@@ -44,3 +51,6 @@
     </p>
   </div>
 </div>
+
+
+
