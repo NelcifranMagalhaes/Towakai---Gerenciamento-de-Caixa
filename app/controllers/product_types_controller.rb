@@ -5,6 +5,8 @@ class ProductTypesController < ApplicationController
   # GET /product_types.json
   def index
     @product_types = ProductType.all
+    @q = @product_types.ransack(params[:q])
+    @product_types = @q.result.page(params[:page]).per(10)
   end
 
   # GET /product_types/1
@@ -69,6 +71,6 @@ class ProductTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_type_params
-      params.require(:product_type).permit(:code, :name)
+      params.require(:product_type).permit(:code, :name,:color,:size)
     end
 end

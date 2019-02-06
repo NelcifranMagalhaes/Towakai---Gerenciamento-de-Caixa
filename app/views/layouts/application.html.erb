@@ -34,6 +34,7 @@
                         <%= link_to "Produtos", products_path ,class: "navbar-item" %>
                         <%= link_to "Vendas", sales_path ,class: "navbar-item" %>
                         <%= link_to "Estatisticas", statistics_path ,class: "navbar-item" %>
+                        <%= link_to "Tipo de Produto", product_types_path ,class: "navbar-item" %>
                         <% if current_user.has_role?(:admin)%>
                           <%= link_to "Usuários", users_path ,class: "navbar-item" %>
                         <% end %>
