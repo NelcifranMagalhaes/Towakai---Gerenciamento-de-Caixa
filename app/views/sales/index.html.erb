@@ -39,7 +39,7 @@
       <tr>
         <th>Cliente</th>
         <th>Data da Venda</th>
-        <th>Produtos</th>
+        <th>Vendedor</th>
         <th colspan="3" align="center">Ações</th>
       </tr>
     </thead>
@@ -48,14 +48,10 @@
         <tr>
           <td><%=sale.client.name %></td>
           <td><%=l sale.sale_date if sale.sale_date.present? %></td>
+          <td><%=sale.user.email%></td>
           <td>
-            <% sale.orders.each do |p| %>
-              <%= p.product.name %><br>
-            <% end %>
-            </td>
-            <td>
-              <%= render 'shared/action_links', object: sale %>
-            </td>
+            <%= render 'shared/action_links', object: sale %>
+          </td>
         </tr>
       <% end %>
     </tbody>

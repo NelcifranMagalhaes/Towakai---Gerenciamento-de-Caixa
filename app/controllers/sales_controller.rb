@@ -29,6 +29,7 @@ class SalesController < ApplicationController
   def create
     @sale = Sale.new(sale_params)
     respond_to do |format|
+      @sale.user_id = current_user.id
       if @sale.save
 
         format.html { redirect_to @sale, notice: 'Venda Criada.' }
@@ -72,6 +73,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:client_id,:sale_date,:quant,orders_attributes: [:id,:quant ,:sale_id, :product_id, :_destroy])
+      params.require(:sale).permit(:client_id,:sale_date,:quant,:user_id,orders_attributes: [:id,:quant ,:sale_id, :product_id, :_destroy])
     end
 end
