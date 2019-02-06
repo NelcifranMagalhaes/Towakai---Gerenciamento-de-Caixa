@@ -11,6 +11,12 @@
         </div>
     </div>
     <div class="field">
+        <label class="label">Tipo de Produto</label>
+        <div class="control">
+            <%= f.association :product_type,label_method: :name_code_of_product,label: false ,input_html: {class: 'select big-select'}%>
+        </div>
+    </div>
+    <div class="field">
         <label class="label">Preço de Custo</label>
         <div class="control">
             <%= f.input :cost_price,label: false ,input_html: {class: 'input money'}%>

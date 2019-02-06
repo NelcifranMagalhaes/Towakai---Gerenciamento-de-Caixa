@@ -40,6 +40,15 @@
     </article>
   </div>
 </div>
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Tipo de Produto</p>
+      <span class="tag is-info is-large"><%= @product.product_type.name_code_of_product if @product.product_type.present? %></span>
+    </article>
+  </div>
+
+</div>
 
 <div class="columns">
   <div class="field is-grouped is-grouped-right column is-4 is-offset-8">

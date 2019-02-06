@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_002626) do
+ActiveRecord::Schema.define(version: 2019_02_06_015434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 2019_02_06_002626) do
     t.index ["sale_id"], name: "index_orders_on_sale_id"
   end
 
+  create_table "product_types", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer "cost_price_cents", default: 0, null: false
     t.string "cost_price_currency", default: "BRL", null: false
@@ -44,6 +51,8 @@ ActiveRecord::Schema.define(version: 2019_02_06_002626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "low_quantity"
+    t.bigint "product_type_id"
+    t.index ["product_type_id"], name: "index_products_on_product_type_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -86,5 +95,6 @@ ActiveRecord::Schema.define(version: 2019_02_06_002626) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "products", "product_types"
   add_foreign_key "sales", "users"
 end

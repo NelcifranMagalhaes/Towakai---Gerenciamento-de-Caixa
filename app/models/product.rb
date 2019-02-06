@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
 	has_many :orders
+	belongs_to :product_type
 	monetize :cost_price_cents
 	monetize :sale_price_cents
 
