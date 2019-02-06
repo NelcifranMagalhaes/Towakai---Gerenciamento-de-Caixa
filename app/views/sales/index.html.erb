@@ -48,7 +48,7 @@
         <tr>
           <td><%=sale.client.name %></td>
           <td><%=l sale.sale_date if sale.sale_date.present? %></td>
-          <td><%=sale.user.email%></td>
+          <td><%=sale.user.email if sale.user.present?%></td>
           <td>
             <%= render 'shared/action_links', object: sale %>
           </td>
