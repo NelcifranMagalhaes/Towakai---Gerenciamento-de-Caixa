@@ -1,3 +1,10 @@
+
+<div id="container"></div>
+
+
+<%= content_tag :div, class: "temp_information", data: {temp: @sales} do %>
+<% end %>
+
 <h4 class="title is-4">
 	<span class="tag is-primary is-medium">Número de vendas por mês</span>
 </h4>
@@ -12,4 +19,12 @@
 
 <div class="box">
 	<%= line_chart Sale.joins(:client).group(:name).count %>
+</div>
+
+<h4 class="title is-4">
+	<span class="tag is-primary is-medium">Testando high</span>
+</h4>
+<div class="box">
+	<%= line_chart Sale.joins(:client).group(:name).count,prefix: "$" %>
+
 </div>
