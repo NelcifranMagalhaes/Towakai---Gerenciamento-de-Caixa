@@ -8,6 +8,10 @@ class Sale < ApplicationRecord
 	validates :sale_date, presence: true
 	validates :client, presence: true
 
+	ransacker :sale_date do
+	  Arel.sql('date(sale_date)')
+	end
+	
 	def validation_of_quant
 		self.orders.each do |ord|
 			if (ord.product.quantity < ord.quant) || (ord.quant > ord.product.quantity - ord.product.low_quantity)

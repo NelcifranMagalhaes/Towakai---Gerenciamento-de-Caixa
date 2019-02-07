@@ -5,18 +5,18 @@
 </article>
 
 <div class="box">
-  <%= search_form_for @q, url: sales_path, html: {method: :get} do |f| %>
+  <%= search_form_for @q, url: sales_path do |f| %>
   <div class="field-body">
       <div class="field">
           <label class="label">Data</label>
           <div class="control">
-              <%= f.search_field :sale_date_eq,html5: true,class: 'input',label: false %>
+              <%= f.input :sale_date_eq,as: :date,html5: true,class: 'input',label: false %>
           </div>
       </div>
       <div class="field">
           <label class="label">Cliente</label>
           <div class="control">
-              <%= f.search_field :client_name_cont,class: 'input',label: false %>
+              <%= f.input :client_name_cont,class: 'input',label: false %>
           </div>
       </div>
   </div>
@@ -27,7 +27,7 @@
   <div class="field-body">
      <div class="field">
        <div class="control">
-        <%= f.submit "Pesquisar", class: 'button is-primary' %>
+        <%= submit_tag "Pesquisar", class: 'button is-primary' %>
        </div>
      </div>
   </div>

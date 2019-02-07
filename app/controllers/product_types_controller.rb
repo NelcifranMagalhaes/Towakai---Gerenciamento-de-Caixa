@@ -4,8 +4,7 @@ class ProductTypesController < ApplicationController
   # GET /product_types
   # GET /product_types.json
   def index
-    @product_types = ProductType.all
-    @q = @product_types.ransack(params[:q])
+    @q = ProductType.ransack(params[:q])
     @product_types = @q.result.page(params[:page]).per(10)
   end
 

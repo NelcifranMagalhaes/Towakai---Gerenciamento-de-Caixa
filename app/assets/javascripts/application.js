@@ -17,6 +17,7 @@
 //= require select2
 //= require cocoon
 //= require jquery.maskMoney.min
+//= require highcharts
 //= require Chart.bundle
 //= require chartkick
 //= require activestorage
