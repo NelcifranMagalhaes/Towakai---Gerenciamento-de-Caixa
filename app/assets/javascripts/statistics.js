@@ -6,8 +6,8 @@ $(document).ready(function() {
     for (x in sales) {
         let date = new Date(x);
         let year = date.getFullYear();
-      // console.log(sales[x]);
-      value_list.push(sales[x])
+        // console.log(sales[x]);
+        value_list.push(sales[x])
         year_list.push({name: year,data: value_list})
     }
     console.log(year_list);
