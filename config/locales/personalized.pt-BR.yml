@@ -37,6 +37,8 @@ pt-BR:
       product_type:
         code: Tamanho/Número
         name: nome
+        size: Tamanho
+        color : Cor
     pagination:
       first: "&laquo;"
       last: "&raquo;"
