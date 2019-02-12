@@ -38,6 +38,7 @@
     <thead>
       <tr>
         <th>Nome</th>
+        <th>Tipo</th>
         <th>Preço de custo</th>
         <th>Preço de venda</th>
         <th>Quantidade</th>
@@ -49,6 +50,7 @@
       <% @products.each do |product| %>
         <tr>
           <td><%= product.name %></td>
+          <td><%= product.product_type.name_code_of_product%></td>
           <td><%= product.cost_price %></td>
           <td><%= product.sale_price %></td>
           <td><%= product.quantity %></td>
