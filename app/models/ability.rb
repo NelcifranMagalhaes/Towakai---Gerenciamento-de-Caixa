@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    alias_action :create, :read, :update,:destroy to: :roles_funci
+    alias_action :create, :read, :update,:destroy, to: :roles_funci
 
     # Define abilities for the passed in user here. For example:
     #
