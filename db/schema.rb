@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_174845) do
+ActiveRecord::Schema.define(version: 2019_02_12_183223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "client_types", force: :cascade do |t|
+    t.string "name"
+    t.float "tax_discount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -24,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_02_12_174845) do
     t.string "email"
     t.string "cnpj"
     t.string "phone"
+    t.bigint "client_type_id"
+    t.index ["client_type_id"], name: "index_clients_on_client_type_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -96,6 +105,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_174845) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "clients", "client_types"
   add_foreign_key "products", "product_types"
   add_foreign_key "sales", "users"
 end

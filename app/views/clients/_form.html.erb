@@ -15,6 +15,12 @@
         </div>
     </div>
     <div class="field">
+        <label class="label">Tipo de Cliente</label>
+        <div class="control">
+            <%= f.association :client_type,label_method: :name,label: false ,input_html: {class: 'select big-select'}%>
+        </div>
+    </div>
+    <div class="field">
         <label class="label">Endereço</label>
         <div class="control">
             <%= f.input :address, label: false ,input_html: {class: 'textarea'}%>

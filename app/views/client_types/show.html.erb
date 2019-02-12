@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @client_type.name %>
+</p>
+
+<p>
+  <strong>Tax discount:</strong>
+  <%= @client_type.tax_discount %>
+</p>
+
+<%= link_to 'Edit', edit_client_type_path(@client_type) %> |
+<%= link_to 'Back', client_types_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Client Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tax discount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client_types.each do |client_type| %>
+      <tr>
+        <td><%= client_type.name %></td>
+        <td><%= client_type.tax_discount %></td>
+        <td><%= link_to 'Show', client_type %></td>
+        <td><%= link_to 'Edit', edit_client_type_path(client_type) %></td>
+        <td><%= link_to 'Destroy', client_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Client Type', new_client_type_path %>
