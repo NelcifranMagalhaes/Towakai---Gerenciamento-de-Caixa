@@ -9,26 +9,16 @@
 <div class="box">
     <%= search_form_for @q, url: product_types_path, html: {method: :get} do |f| %>
             <div class="field is-horizontal">
-                <div class="field-body">
                   <div class="field is-grouped">          
-                      <div class="field-label is-normal">
-                        <label class="label">Nome</label>             
-                    </div>          
                       <p class="control is-expanded">
-                      <%= f.input :name_cont,class: 'input',label: false %>
+                      <%= f.input :name_cont,class: 'input',label: false,placeholder: "Nome" %>
+                      </p>
+                  </div>
+                  <div class="field is-grouped">          
+                      <p class="control is-expanded">
+                      <%= f.input :size_cont,class: 'input',label: false,placeholder: "Tamanho" %>
                       </p>
                   </div>     
-              </div>
-                <div class="field-body">
-                  <div class="field is-grouped">          
-                      <div class="field-label is-normal">
-                        <label class="label">Codígo</label>             
-                    </div>          
-                      <p class="control is-expanded">
-                      <%= f.input :code_cont,class: 'input',label: false %>
-                      </p>
-                  </div>     
-              </div>
               &nbsp;
               <div class="field-body">
                 <div class="field is-grouped">          
@@ -44,7 +34,6 @@
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Código</th>
           <th>Cor</th>
           <th>Tamanho</th>
           <th colspan="3">#</th>
@@ -55,7 +44,6 @@
         <% @product_types.each do |product_type|%>
           <tr>
             <td><%= product_type.name %></td> 
-              <td><%= product_type.code %></td>
             <td><%= product_type.color %></td>
             <td><%= product_type.size %></td>
             <td>

@@ -3,6 +3,6 @@ class ProductType < ApplicationRecord
 	validates :code,presence: true
 
 	def name_code_of_product
-		"#{self.name} - #{self.code}"
+		"#{self.name.uppercase}"
 	end
 end
