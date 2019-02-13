@@ -12,7 +12,7 @@ $(document).ready(function() {
 	$( ".productsSelect" ).select2();
 	$('.money_mask').mask('000.000.000.000.000,00', {reverse: true});
 	// $(".money_brazil").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
-
+	$('.percent').mask('##0,00%', {reverse: true});
 
 
 	$('.money').maskMoney({

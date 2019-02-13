@@ -4,7 +4,8 @@ class ClientTypesController < ApplicationController
   # GET /client_types
   # GET /client_types.json
   def index
-    @client_types = ClientType.all
+    @q = ClientType.ransack(params[:q])
+    @client_types = @q.result.page(params[:page]).per(10)
   end
 
   # GET /client_types/1
@@ -28,7 +29,7 @@ class ClientTypesController < ApplicationController
 
     respond_to do |format|
       if @client_type.save
-        format.html { redirect_to @client_type, notice: 'Client type was successfully created.' }
+        format.html { redirect_to @client_type, notice: 'Tipo de Cliente atualizado com sucesso!.' }
         format.json { render :show, status: :created, location: @client_type }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ClientTypesController < ApplicationController
   def update
     respond_to do |format|
       if @client_type.update(client_type_params)
-        format.html { redirect_to @client_type, notice: 'Client type was successfully updated.' }
+        format.html { redirect_to @client_type, notice: 'Tipo de Cliente Atualizado!' }
         format.json { render :show, status: :ok, location: @client_type }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class ClientTypesController < ApplicationController
   def destroy
     @client_type.destroy
     respond_to do |format|
-      format.html { redirect_to client_types_url, notice: 'Client type was successfully destroyed.' }
+      format.html { redirect_to client_types_url, notice: 'Tipo de Cliente deletado.' }
       format.json { head :no_content }
     end
   end

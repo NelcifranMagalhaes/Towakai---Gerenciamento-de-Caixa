@@ -4,4 +4,13 @@ class Client < ApplicationRecord
 	validates :name,presence: true
 	validates :address,presence: true
 	validates :email,presence: true
+
+
+	def name_with_type
+		"#{self.name.upcase} - #{self.client_type.name}"
+	end	
+
+	def name_to_upcase
+		"#{self.name.upcase}"
+	end
 end

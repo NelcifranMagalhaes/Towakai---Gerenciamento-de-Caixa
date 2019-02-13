@@ -1,6 +1,9 @@
-<h1>Editing Client Type</h1>
-
-<%= render 'form', client_type: @client_type %>
-
-<%= link_to 'Show', @client_type %> |
-<%= link_to 'Back', client_types_path %>
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Editando tipo de Cliente</p>
+</div>
+ </article>   
+	<%= render 'form', client_type: @client_type %>
+<br>
+<%= link_to 'Mostrar', @client_type ,class: "button is-link"%> 
+<%= link_to 'Voltar', client_types_path ,class: "button is-info is-inverted"%>

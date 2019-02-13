@@ -1,7 +1,7 @@
 
 
-# Client.destroy_all
-# puts "Deletando Clientes"
+Client.destroy_all
+puts "Deletando Clientes"
 Product.destroy_all
 puts "Deletando Produtos"
 # Role.destroy_all
@@ -11,10 +11,12 @@ puts "Deletando Vendas"
 Order.destroy_all
 puts "Deletando Orders"
 
-# puts "Criando Clientes"
-# 30.times do |index|
-# 	Client.create!(name: Faker::Name.name,address: Faker::Address.full_address,email: Faker::Internet.email,phone: Faker::PhoneNumber.cell_phone,)
-# end
+client_type = ClientType.find(ClientType.pluck(:id))
+puts "Criando Clientes"
+30.times do |index|
+	Client.create!(name: Faker::Name.name,address: Faker::Address.full_address,email: Faker::Internet.email,phone: Faker::PhoneNumber.cell_phone,client_type_id: client_type.shuffle.first.id)
+end
+
 product_type = ProductType.find(ProductType.pluck(:id))
 puts "Criando Produtos"
 30.times do |index|

@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @client_type.name %>
-</p>
-
-<p>
-  <strong>Tax discount:</strong>
-  <%= @client_type.tax_discount %>
-</p>
-
-<%= link_to 'Edit', edit_client_type_path(@client_type) %> |
-<%= link_to 'Back', client_types_path %>
+<div class="tile is-ancestor">
+  <div class="tile is-4 is-vertical is-parent">
+    <div class="tile is-child box">
+      <p class="title">Nome</p>
+      <p><%= @client_type.name %></p>
+    </div>
+    <div class="tile is-child box">
+      <p class="title">Taxa de Desconto</p>
+      <p><%= @client_type.tax_discount %>%</p>
+    </div>
+  </div>
+</div>
+<div class="columns">
+	<div class="field is-grouped is-grouped-right column is-4 is-offset-8">
+	  <p class="control">
+		<%= link_to 'Editar',edit_client_type_path(@client_type),class: "button is-primary" %>
+	  </p>
+	  <p class="control">
+		<%= link_to 'Voltar', client_types_path ,class: "button is-info is-inverted"%>
+	  </p>
+	</div>
+</div>

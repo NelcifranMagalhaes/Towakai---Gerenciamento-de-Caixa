@@ -1,29 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Client Types</h1>
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Tipo de Clientes</p>
+  </div>
+</article>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Tax discount</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @client_types.each do |client_type| %>
-      <tr>
-        <td><%= client_type.name %></td>
-        <td><%= client_type.tax_discount %></td>
-        <td><%= link_to 'Show', client_type %></td>
-        <td><%= link_to 'Edit', edit_client_type_path(client_type) %></td>
-        <td><%= link_to 'Destroy', client_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="box">
+    <%= search_form_for @q, url: client_types_path, html: {method: :get} do |f| %>
+            <div class="field is-horizontal">
+                  <div class="field is-grouped">          
+                      <p class="control is-expanded">
+                      <%= f.input :name_cont,class: 'input',label: false,placeholder: "Nome" %>
+                      </p>
+                  </div>
+                  &nbsp;
+                  <div class="field-body">
+                    <div class="field is-grouped">          
+                      <%= f.submit "Pesquisar", class: 'button is-primary' %>
+                    </div>
+                  </div>
+            </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+   <div class="table-container">  
+    <table class="table is-striped is-flex-tablet-only is-fullwidth">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Desconto</th>
+          <th colspan="3">#</th>
+        </tr>
+      </thead>
 
-<%= link_to 'New Client Type', new_client_type_path %>
+      <tbody>
+        <% @client_types.each do |client_type|%>
+          <tr>
+            <td><%= client_type.name %></td> 
+            <td><%= client_type.tax_discount %>%</td>
+            <td>
+              <%= render 'shared/action_links', object: client_type %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box">
+    <div class="columns is-gapless is-multiline is-mobile">
+      <%= paginate @client_types %>
+    </div>
+ </div>
+<%= link_to 'Novo Tipo de Produto',new_client_type_path,class: "button is-link" %>
+</div>

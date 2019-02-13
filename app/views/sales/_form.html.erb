@@ -10,7 +10,6 @@
       <% end %>
       </div>
     <% end %>
-
 <br>
   <div class="columns">
     <div class="field column is-one-third">
@@ -22,7 +21,7 @@
     <div class="field column is-half">
         <label class="label">Cliente</label>
         <div class="control">
-            <%= f.association :client,label: false ,input_html: {class: 'select big-select'}%>
+            <%= f.association :client,label: false ,label_method: :name_with_type,input_html: {class: 'select big-select'}%>
         </div>
     </div>
   </div>
