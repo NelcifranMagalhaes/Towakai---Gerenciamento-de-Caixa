@@ -53,7 +53,7 @@
         <% @clients.each do |client| %>
           <tr>
             <td><%= client.name %></td>
-            <td><%= client.client_type.name_to_upcase %></td>
+            <td><%= client.client_type.name_to_upcase if client.client_type.present?%></td>
             <td><%= client.email %></td>
             <td>
               <%= render 'shared/action_links', object: client %>
