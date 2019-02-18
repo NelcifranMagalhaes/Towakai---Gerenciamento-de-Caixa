@@ -6,7 +6,8 @@
 					<div class="field">
 						<label class="label">Produto</label>
 						<div class="control">
-							<%= f.association :product, as: :select,collection: Product.all ,label_method: :name, value_method: :id,input_html: {class: 'select big-select2'}%>
+							<%= f.association :product, as: :select,collection: Product.all ,label_method: :name_and_size,
+							 value_method: :id,input_html: {class: 'select big-select2'}%>
 						</div>
 					</div>
 

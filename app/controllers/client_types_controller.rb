@@ -4,7 +4,7 @@ class ClientTypesController < ApplicationController
   # GET /client_types
   # GET /client_types.json
   def index
-    @q = ClientType.ransack(params[:q])
+    @q = ClientType.order(name: :asc).ransack(params[:q])
     @client_types = @q.result.page(params[:page]).per(10)
   end
 

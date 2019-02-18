@@ -1,11 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <article class="message is-dark">
   <div class="message-header">
     <p>Tipo de Produto</p>
   </div>
 </article>
-
 <div class="box">
     <%= search_form_for @q, url: product_types_path, html: {method: :get} do |f| %>
             <div class="field is-horizontal">
@@ -28,7 +25,6 @@
             </div>
     <% end %>
   </div>
-
    <div class="table-container">  
     <table class="table is-striped is-flex-tablet-only is-fullwidth">
       <thead>

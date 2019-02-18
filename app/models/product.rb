@@ -19,4 +19,8 @@ class Product < ApplicationRecord
 		
 	end
 
+	def name_and_size
+		"#{self.name} - #{self.product_type.size}"
+	end
+
 end

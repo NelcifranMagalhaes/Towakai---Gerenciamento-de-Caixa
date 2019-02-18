@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @q = Client.ransack(params[:q])
+    @q = Client.order(name: :asc).ransack(params[:q])
     @clients = @q.result.page(params[:page]).per(10)
   end
 
