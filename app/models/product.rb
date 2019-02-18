@@ -16,7 +16,6 @@ class Product < ApplicationRecord
 		if self.quantity <= self.low_quantity
 			errors.add(:quantity, "A quantidade do Produto deve ser maior que a quantidade mínima.")
 		end
-		
 	end
 
 	def name_and_size

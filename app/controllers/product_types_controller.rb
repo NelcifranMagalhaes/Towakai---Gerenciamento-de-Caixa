@@ -1,4 +1,5 @@
 class ProductTypesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_product_type, only: [:show, :edit, :update, :destroy]
 
   # GET /product_types
