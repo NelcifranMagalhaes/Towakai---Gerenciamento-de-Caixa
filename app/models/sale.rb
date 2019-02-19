@@ -5,7 +5,7 @@ class Sale < ApplicationRecord
 	has_many :orders,inverse_of: :sale
 	accepts_nested_attributes_for :orders, reject_if: :all_blank, allow_destroy: true
 
-	validate :validation_of_quant
+	validate :validation_of_quant,on: :create
 	validates :sale_date, presence: true
 	validates :client, presence: true
 
