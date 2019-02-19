@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_121934) do
+ActiveRecord::Schema.define(version: 2019_02_19_144441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_02_19_121934) do
     t.string "cnpj"
     t.string "phone"
     t.bigint "client_type_id"
+    t.float "weight"
+    t.float "height"
     t.index ["client_type_id"], name: "index_clients_on_client_type_id"
   end
 

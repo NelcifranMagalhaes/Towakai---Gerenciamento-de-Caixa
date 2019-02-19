@@ -26,22 +26,19 @@
             <%= f.input :address, label: false ,input_html: {class: 'textarea'}%>
         </div>
     </div>
-    <div class="field">
-        <label class="label">CPF</label>
-        <div class="control">
-            <%= f.input :cpf, label: false ,input_html: {class: 'input'}%>
+    <div class="field is-grouped">
+        <div class="field">
+            <label class="label">CPF</label>
+            <div class="control">
+                <%= f.input :cpf, label: false ,input_html: {class: 'input'}%>
+            </div>
         </div>
-    </div>
-    <div class="field">
-        <label class="label">CNPJ</label>
-        <div class="control">
-            <%= f.input :cnpj, label: false ,input_html: {class: 'input'}%>
-        </div>
-    </div>
-    <div class="field">
-        <label class="label">Telefone</label>
-        <div class="control">
-            <%= f.input :phone, label: false ,input_html: {class: 'input'}%>
+        &nbsp;
+        <div class="field">
+            <label class="label">CNPJ</label>
+            <div class="control">
+                <%= f.input :cnpj, label: false ,input_html: {class: 'input'}%>
+            </div>
         </div>
     </div>
     <div class="field">
@@ -50,9 +47,25 @@
             <%= f.input :email, label: false ,input_html: {class: 'input'}%>
         </div>
     </div>
+    <div class="field">
+        <label class="label">Telefone</label>
+        <div class="control">
+            <%= f.input :phone, label: false ,input_html: {class: 'input'}%>
+        </div>
+    </div>
+    <div class="field is-grouped">
+        <div class="field">
+            <label class="label">Altura</label>
+            <%= f.input :height, label: false ,input_html: {class: 'input'},wrapper_html: {class: 'control is-expanded'}%>
+        </div>
+        &nbsp;
+        <div class="field">
+            <label class="label">Peso</label>
+            <%= f.input :weight, label: false ,input_html: {class: 'input'},wrapper_html: {class: 'control is-expanded'}%>
+        </div>
+    </div>
     <div class= "control">
         <%= f.button :submit ,class: "button is-primary"%>
     </div>
 </div>
 <% end %>
-

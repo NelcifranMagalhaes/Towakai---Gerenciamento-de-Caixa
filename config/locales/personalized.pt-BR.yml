@@ -26,6 +26,8 @@ pt-BR:
         cpf: CPF
         cnpj: CNPJ
         phone: Telefone/Celular
+        weight: Peso
+        height: Altura
 
       user:
         email: Email
