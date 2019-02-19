@@ -1,28 +1,46 @@
 <p id="notice"><%= notice %></p>
 <div class="columns">
   <div class="column">
-  <div class="tile is-ancestor">
-    <div class="tile is-4 is-vertical is-parent">
-      <div class="tile is-child box">
-        <p class="title">Nome</p>
-        <p><%= @product_type.name %></p>
-      </div>
-      <div class="tile is-child box">
-        <p class="title">Tamanho</p>
-        <p><%= @product_type.size %></p>
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Nome
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+        <%= @product_type.name %>
+        </div>
       </div>
     </div>
-  </div>  
-</div>
+  </div>
   <div class="column">
-  	<div class="tile is-ancestor">
-  	  <div class="tile is-4 is-vertical is-parent">
-  	    <div class="tile is-child box">
-  	      <p class="title">Cor</p>
-  	      <p><%= @product_type.color %></p>
-  	    </div>
-  	  </div>
-  	</div> 
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Tamanho
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <%= @product_type.size %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Cor
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <%= @product_type.color %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
