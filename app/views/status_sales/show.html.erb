@@ -1,14 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @status_sale.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @status_sale.description %>
-</p>
-
-<%= link_to 'Edit', edit_status_sale_path(@status_sale) %> |
-<%= link_to 'Back', status_sales_path %>
+<div class="columns">
+  <div class="column is-half">
+  	<div class="card">
+  	  <header class="card-header">
+  	    <p class="card-header-title">
+  	      Nome
+  	    </p>
+  	  </header>
+  	  <div class="card-content">
+  	    <div class="content">
+  			<%= @status_sale.name %>
+  	    </div>
+  	  </div>
+  	</div>
+  </div>
+  <div class="column is-half">
+  	<div class="card">
+  	  <header class="card-header">
+  	    <p class="card-header-title">
+  	      Descrição
+  	    </p>
+  	  </header>
+  	  <div class="card-content">
+  	    <div class="content">
+			<%= @status_sale.description %>
+  	    </div>
+  	  </div>
+  	</div>
+  </div>
+</div>
+<div class="columns">
+	<div class="field is-grouped is-grouped-right column is-4 is-offset-8">
+	  <p class="control">
+		<%= link_to 'Editar',edit_status_sale_path(@status_sale),class: "button is-primary" %>
+	  </p>
+	  <p class="control">
+		<%= link_to 'Voltar', status_sales_path ,class: "button is-info is-inverted"%>
+	  </p>
+	</div>
+</div>

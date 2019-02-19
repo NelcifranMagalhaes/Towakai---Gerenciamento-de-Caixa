@@ -4,7 +4,8 @@ class StatusSalesController < ApplicationController
   # GET /status_sales
   # GET /status_sales.json
   def index
-    @status_sales = StatusSale.all
+    @q = StatusSale.order(name: :asc).ransack(params[:q])
+    @status_sales = @q.result.page(params[:page]).per(10)
   end
 
   # GET /status_sales/1
@@ -28,7 +29,7 @@ class StatusSalesController < ApplicationController
 
     respond_to do |format|
       if @status_sale.save
-        format.html { redirect_to @status_sale, notice: 'Status sale was successfully created.' }
+        format.html { redirect_to @status_sale, notice: 'Status de venda Criada com sucesso.' }
         format.json { render :show, status: :created, location: @status_sale }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class StatusSalesController < ApplicationController
   def update
     respond_to do |format|
       if @status_sale.update(status_sale_params)
-        format.html { redirect_to @status_sale, notice: 'Status sale was successfully updated.' }
+        format.html { redirect_to @status_sale, notice: 'Status de venda atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @status_sale }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class StatusSalesController < ApplicationController
   def destroy
     @status_sale.destroy
     respond_to do |format|
-      format.html { redirect_to status_sales_url, notice: 'Status sale was successfully destroyed.' }
+      format.html { redirect_to status_sales_url, notice: 'Status de venda deletada com sucesso.' }
       format.json { head :no_content }
     end
   end

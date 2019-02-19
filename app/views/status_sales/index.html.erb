@@ -1,29 +1,51 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Status Sales</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @status_sales.each do |status_sale| %>
-      <tr>
-        <td><%= status_sale.name %></td>
-        <td><%= status_sale.description %></td>
-        <td><%= link_to 'Show', status_sale %></td>
-        <td><%= link_to 'Edit', edit_status_sale_path(status_sale) %></td>
-        <td><%= link_to 'Destroy', status_sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Status de Vendas</p>
+  </div>
+</article>
+<div class="box">
+    <%= search_form_for @q, url: status_sales_path, html: {method: :get} do |f| %>
+            <div class="field is-horizontal">
+                  <div class="field is-grouped">          
+                      <p class="control is-expanded">
+                      <%= f.input :name_cont,class: 'input',label: false,placeholder: "Nome" %>
+                      </p>
+                  </div>
+              &nbsp;
+              <div class="field-body">
+                <div class="field is-grouped">          
+                  <%= f.submit "Pesquisar", class: 'button is-primary' %>
+                </div>
+              </div>
+            </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+   <div class="table-container">  
+    <table class="table is-striped is-flex-tablet-only is-fullwidth">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th colspan="3">#</th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @status_sales.each do |status_sale|%>
+          <tr>
+            <td><%= status_sale.name %></td> 
+            <td>
+              <%= render 'shared/action_links', object: status_sale %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<%= link_to 'New Status Sale', new_status_sale_path %>
+  <div class="box">
+    <div class="columns is-gapless is-multiline is-mobile">
+      <%= paginate @status_sales %>
+    </div>
+ </div>
+<%= link_to 'Novo Tipo de Produto',new_status_sale_path,class: "button is-link" %>
+</div>
