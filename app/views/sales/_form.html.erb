@@ -18,10 +18,16 @@
             <%= f.input :sale_date,html5: true,label: false ,input_html: {class: 'input'}%>
         </div>
     </div>
-    <div class="field column is-half">
+    <div class="field column is-two-fifths">
         <label class="label">Cliente</label>
         <div class="control">
             <%= f.association :client,label: false ,label_method: :name_with_type,input_html: {class: 'select big-select'}%>
+        </div>
+    </div>
+    <div class="field column is-one-quarter">
+        <label class="label">Status</label>
+        <div class="control">
+            <%= f.association :status_sale,label: false ,label_method: :name_upper,input_html: {class: 'select big-select'}%>
         </div>
     </div>
   </div>

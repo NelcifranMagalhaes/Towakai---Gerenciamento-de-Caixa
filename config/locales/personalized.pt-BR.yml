@@ -8,6 +8,7 @@ pt-BR:
       sale: Venda
       order: Produtos Adicionados
       product_type: Tipo de Produto
+      status_sale: Status da Venda
 
     attributes:  
       product:
@@ -34,11 +35,17 @@ pt-BR:
         sale_date: Data da Venda
         client: Cliente
         order: Quantidade=>
+
       product_type:
         code: Tamanho/Número
         name: nome
         size: Tamanho
         color : Cor
+
+      status_sale:
+        name: nome
+        description: descrição
+        
     pagination:
       first: "&laquo;"
       last: "&raquo;"

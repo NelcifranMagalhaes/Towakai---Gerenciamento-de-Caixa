@@ -1,6 +1,7 @@
 class Sale < ApplicationRecord
 	belongs_to :client
 	belongs_to :user
+	belongs_to :status_sale
 	has_many :orders,inverse_of: :sale
 	accepts_nested_attributes_for :orders, reject_if: :all_blank, allow_destroy: true
 

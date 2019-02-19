@@ -39,6 +39,7 @@
       <tr>
         <th>Cliente</th>
         <th>Data da Venda</th>
+        <th>Status da Venda</th>
         <th>Vendedor</th>
         <th colspan="3" align="center">Ações</th>
       </tr>
@@ -48,6 +49,7 @@
         <tr>
           <td><%=sale.client.name %></td>
           <td><%=l sale.sale_date if sale.sale_date.present? %></td>
+          <td><%= sale.status_sale.name_upper if sale.status_sale.present? %></td>
           <td><%=sale.user.email if sale.user.present?%></td>
           <td>
             <%= render 'shared/action_links', object: sale %>
