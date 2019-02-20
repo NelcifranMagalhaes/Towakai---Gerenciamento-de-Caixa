@@ -9,14 +9,14 @@ class Product < ApplicationRecord
 	validates :sale_price,presence: true
 	validates :quantity,presence: true
 	validates :low_quantity,presence: true
-	validate :verify_estoque
+	# validate :verify_estoque
 
 
-	def verify_estoque
-		if self.quantity <= self.low_quantity
-			errors.add(:quantity, "A quantidade do Produto deve ser maior que a quantidade mínima.")
-		end
-	end
+	# def verify_estoque
+	# 	if self.quantity <= self.low_quantity
+	# 		errors.add(:quantity, "A quantidade do Produto deve ser maior que a quantidade mínima.")
+	# 	end
+	# end
 
 	def name_and_size
 		"#{self.name} - #{self.product_type.size}"

@@ -16,8 +16,11 @@
       	<span class="tag is-light is-medium">Cliente:</span>
       	<%= @sale.client.name  %>
       &nbsp;
-      	<span class="tag is-light is-medium">Data:</span>
-		<%=l @sale.sale_date  %>
+        <span class="tag is-light is-medium">Data:</span>
+        <%=l @sale.sale_date  %>
+      &nbsp;
+      	<span class="tag is-light is-medium">Rastreio:</span>
+		    <%=@sale.track  %>
     </div>
   </div>
 </div>

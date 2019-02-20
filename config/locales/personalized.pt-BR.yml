@@ -37,6 +37,7 @@ pt-BR:
         sale_date: Data da Venda
         client: Cliente
         order: Quantidade=>
+        track: Rastreio
 
       product_type:
         code: Tamanho/Número

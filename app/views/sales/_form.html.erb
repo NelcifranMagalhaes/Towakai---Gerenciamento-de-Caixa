@@ -24,10 +24,18 @@
             <%= f.association :client,label: false ,label_method: :name_with_type,input_html: {class: 'select big-select'}%>
         </div>
     </div>
-    <div class="field column is-one-quarter">
+  </div>
+  <div class="columns">
+    <div class="field column is-one-third">
         <label class="label">Status</label>
         <div class="control">
             <%= f.association :status_sale,label: false ,label_method: :name_upper,input_html: {class: 'select big-select'}%>
+        </div>
+    </div>
+    <div class="field column is-one-quarter">
+        <label class="label">Rastreio da Venda</label>
+        <div class="control">
+            <%= f.input :track,label: false ,input_html: {class: 'input'}%>
         </div>
     </div>
   </div>
