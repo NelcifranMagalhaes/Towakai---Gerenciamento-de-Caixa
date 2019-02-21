@@ -4,6 +4,7 @@ class Client < ApplicationRecord
 	validates :name,presence: true
 	validates :address,presence: true
 	validates :email,presence: true
+	validates :postal_code,presence: true
 
 
 	def name_with_type
