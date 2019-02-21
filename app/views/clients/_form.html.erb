@@ -15,9 +15,24 @@
         </div>
     </div>
     <div class="field">
-        <label class="label">Tipo de Cliente</label>
+        <label class="label">Tipo</label>
         <div class="control">
             <%= f.association :client_type,label_method: :name,label: false ,input_html: {class: 'select big-select'}%>
+        </div>
+    </div>
+    <div class="field is-grouped">
+        <div class="field">
+            <label class="label">CEP</label>
+            <div class="control">
+                <%= f.input :postal_code, label: false ,input_html: {class: 'input'}%>
+            </div>
+        </div>
+        &nbsp;
+        <div class="field">
+            <label class="label">UF</label>
+            <div class="control">
+                <%= f.input :uf, label: false ,input_html: {class: 'input'}%>
+            </div>
         </div>
     </div>
     <div class="field">
