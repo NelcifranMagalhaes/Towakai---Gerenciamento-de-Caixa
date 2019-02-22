@@ -16,6 +16,7 @@ class Ability
             can :crud,ClientType
             can :read,Product
             can :read,ProductType
+            can :read,StatusSale
         else
             can :read, :all
         end

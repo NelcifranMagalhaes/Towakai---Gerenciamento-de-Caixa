@@ -10,11 +10,16 @@ puts "Deletando Vendas"
 Sale.destroy_all
 puts "Deletando Orders"
 Order.destroy_all
+puts "Deletando Status Sales"
+StatusSale.destroy_all
+puts "Deletando Client type"
+ClientType.destroy_all
 
 puts "Criando status de venda"
 StatusSale.create!(name: "Cadastrada",description: "Venda cadastrada")
 StatusSale.create!(name: "Enviada",description: "Venda enviada para o cliente")
 StatusSale.create!(name: "Recebida",description: "Venda entregue ao cliente")
+StatusSale.create!(name: "Encomenda",description: "Venda entregue ao cliente")
 
 puts "Criando status de cliente"
 ClientType.create!(name: "Professor",tax_discount: 20.22)
@@ -23,7 +28,8 @@ ClientType.create!(name: "Aluno",tax_discount: 10.8)
 client_type = ClientType.find(ClientType.pluck(:id))
 puts "Criando Clientes"
 30.times do |index|
-	Client.create!(name: Faker::Name.name,address: Faker::Address.full_address,email: Faker::Internet.email,phone: Faker::PhoneNumber.cell_phone,client_type_id: client_type.shuffle.first.id)
+	Client.create!(name: Faker::Name.name,address: Faker::Address.full_address,email: Faker::Internet.email,
+		phone: Faker::PhoneNumber.cell_phone,client_type_id: client_type.shuffle.first.id,postal_code: 65634478)
 end
 
 product_type = ProductType.find(ProductType.pluck(:id))

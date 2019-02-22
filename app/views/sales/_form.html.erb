@@ -21,7 +21,7 @@
     <div class="field column is-two-fifths">
         <label class="label">Cliente</label>
         <div class="control">
-            <%= f.association :client,label: false ,label_method: :name_with_type,input_html: {class: 'select big-select'}%>
+            <%= f.association :client,label: false ,collection: Client.order(name: :asc), prompt: "Escolha o Cliente",label_method: :name_with_type,input_html: {class: 'select big-select'}%>
         </div>
     </div>
   </div>

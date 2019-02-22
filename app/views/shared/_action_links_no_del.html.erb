@@ -1,0 +1,8 @@
+<%= link_to object, data: { toggle: 'tooltip', placement: 'top', title: 'Visualizar' }, class: 'button is-primary is-rounded' do %>
+  <i class="fa fa-eye"></i>
+<% end %>
+&nbsp;
+<%= link_to eval("edit_#{object.class.to_s.underscore}_path(#{object.id})"), data: { toggle: 'tooltip', placement: 'top', title: 'Editar' }, class: 'button is-warning is-rounded' do %>
+  <i class="fa fa-pencil"></i>
+<% end %>
+
