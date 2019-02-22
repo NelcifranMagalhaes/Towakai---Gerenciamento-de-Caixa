@@ -3,7 +3,7 @@ class Client < ApplicationRecord
 	belongs_to :client_type
 	validates :name,presence: true
 	validates :address,presence: true
-	validates :email,presence: true
+	# validates :email,presence: true
 	validates :postal_code,presence: true
 
 
