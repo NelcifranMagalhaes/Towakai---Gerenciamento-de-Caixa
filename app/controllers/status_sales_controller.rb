@@ -71,6 +71,6 @@ class StatusSalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_sale_params
-      params.require(:status_sale).permit(:name, :description)
+      params.require(:status_sale).permit(:name, :description,:reference)
     end
 end
