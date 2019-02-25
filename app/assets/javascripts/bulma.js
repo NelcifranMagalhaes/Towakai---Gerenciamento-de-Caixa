@@ -9,11 +9,11 @@ $(document).ready(function() {
     });
 })();
 
-	$( ".productsSelect" ).select2();
+	$( ".selectSearch" ).select2();
 	$('.money_mask').mask('000.000.000.000.000,00', {reverse: true});
 	// $(".money_brazil").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
 	$('.percent').mask('##0,00%', {reverse: true});
-    $('#client_cpf').mask('000.000.000-00');
+    $('.cpf').mask('000.000.000-00');
     $('#client_phone').mask('(00) 00000-0000');
     $('#client_height').mask('0,00');
     $('#client_weight').mask('000,00');

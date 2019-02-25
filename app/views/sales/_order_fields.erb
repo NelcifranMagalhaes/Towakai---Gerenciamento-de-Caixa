@@ -7,7 +7,7 @@
 						<label class="label">Produto</label>
 						<div class="control">
 							<%= f.association :product, as: :select,collection: Product.order(name: :asc) ,prompt: "Escolha o Produto",label_method: :name_and_size,
-							 value_method: :id,input_html: {class: 'select big-select2'}%>
+							 value_method: :id,input_html: {class: 'select selectSearch'}%>
 						</div>
 					</div>
 
@@ -29,3 +29,7 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$( ".selectSearch" ).select2();
+</script>

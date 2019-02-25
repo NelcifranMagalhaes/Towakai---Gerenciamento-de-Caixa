@@ -29,6 +29,17 @@
                   </div>     
               </div>
               &nbsp;
+                <div class="field-body">
+                  <div class="field is-grouped">          
+                      <div class="field-label is-normal">
+                        <label class="label">CPF</label>             
+                    </div>          
+                      <p class="control is-expanded">
+                      <%= f.search_field :cpf_cont,class: 'input cpf',label: false %>
+                      </p>
+                  </div>     
+              </div>
+              &nbsp;
               <div class="field-body">
                 <div class="field is-grouped">          
                   <%= f.submit "Pesquisar", class: 'button is-primary' %>
@@ -45,6 +56,7 @@
           <th>Nome</th>
           <th>Tipo</th>
           <th>Email</th>
+          <th>Cpf</th>
           <th colspan="3">#</th>
         </tr>
       </thead>
@@ -55,6 +67,7 @@
             <td><%= client.name %></td>
             <td><%= client.client_type.name_to_upcase if client.client_type.present?%></td>
             <td><%= client.email %></td>
+            <td><%= client.cpf if client.cpf.present?%></td>
             <td>
               <%= render 'shared/action_links', object: client %>
             </td>
