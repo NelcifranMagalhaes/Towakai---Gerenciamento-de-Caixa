@@ -5,7 +5,7 @@
 <% end %>
 
 <h4 class="title is-4">
-	<span class="tag is-primary is-medium">Número de vendas por mês</span>
+	<span class="tag is-primary is-medium">Número de vendas por dia</span>
 </h4>
 
 <div class="box">
@@ -13,9 +13,17 @@
 </div>
 
 <h4 class="title is-4">
-	<span class="tag is-primary is-medium">Produto mais Vendido</span>
+	<span class="tag is-primary is-medium">Produto mais Vendido no Mês</span>
 </h4>
 
 <div class="box">
 	<span class="tag is-black"><%= @most_frequent_item.name %></span>
+</div>
+
+<h4 class="title is-4">
+	<span class="tag is-primary is-medium">Valor total das vendas no Mês</span>
+</h4>
+
+<div class="box">
+	<span class="tag is-black">R$<%= @value_total_all_sales%></span>
 </div>
