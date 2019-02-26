@@ -1,0 +1,55 @@
+
+<%= simple_form_for(balance_path) do |f| %>
+  <div class="box">
+
+	<div class="field-body">
+	      <div class="field">
+	          <label class="label">Mês</label>
+	          <div class="control">
+	              <%= f.input :month,label: false ,input_html: {class: 'input'}%>
+	          </div>
+	      </div>
+	      <div class="field">
+	          <label class="label">Ano</label>
+	          <div class="control">
+	              <%= f.input :year,label: false ,input_html: {class: 'input'}%>
+	          </div>
+	      </div>
+  	</div>
+	&nbsp;
+	<div class= "control">
+		<%= f.button :submit,'Enviar' ,class: "button is-primary"%>
+	</div>
+  </div>
+<% end %>
+	&nbsp;
+<% if @sales.present?%>
+	<h4 class="title is-4">
+		<span class="tag is-primary is-medium">Número de vendas por dia</span>
+	</h4>
+
+	<div class="box">
+		<%= line_chart @sales %>
+	</div>
+<% end %>
+
+<% if @most_frequent_item.present?%>
+
+	<h4 class="title is-4">
+		<span class="tag is-primary is-medium">Produto mais Vendido no Mês</span>
+	</h4>
+
+	<div class="box">
+		<span class="tag is-black"><%= @most_frequent_item.name %></span>
+	</div>
+<% end %>
+
+<% if @value_total_all_sales.present?%>
+	<h4 class="title is-4">
+		<span class="tag is-primary is-medium">Valor total das vendas no Mês</span>
+	</h4>
+
+	<div class="box">
+		<span class="tag is-black">R$<%= @value_total_all_sales%></span>
+	</div>
+<% end %>

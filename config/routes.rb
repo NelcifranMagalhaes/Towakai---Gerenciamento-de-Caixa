@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   root to: 'dashboards#index'
 
   get '/statistics', to: 'statistics#index'
+  get '/balance', to: 'statistics#balance'
+  post '/balance', to: 'statistics#balance'
   # get '/users', to: 'users#index'
   # get '/users/:id/edit' ,to: 'users#edit', as: 'users_edit'
   # get '/users/:id' ,to: 'users#update', as: 'user_path'

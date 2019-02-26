@@ -5,6 +5,10 @@ class Sale < ApplicationRecord
 	has_many :orders,inverse_of: :sale
 	accepts_nested_attributes_for :orders, reject_if: :all_blank, allow_destroy: true
 
+	scope :month_sale, -> (month,year) {
+		where("EXTRACT(MONTH FROM sale_date) = ? and EXTRACT(YEAR FROM sale_date) = ?","#{month}","#{year}")
+	}
+
 	validate :validation_of_quant,on: :create
 	validates :sale_date, presence: true
 	validates :client, presence: true
