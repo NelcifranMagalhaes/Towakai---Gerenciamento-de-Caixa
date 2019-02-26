@@ -11,7 +11,7 @@ class StatisticsController < ApplicationController
 				product_ids.push(order.product.id)
 
 				if sale.status_sale.reference != 0
-					total_value_sales = total_value_sales + order.product.quantity * order.quant
+					total_value_sales = total_value_sales + order.product.sale_price * order.quant
 				end
 			end
 		end
