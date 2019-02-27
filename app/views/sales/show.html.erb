@@ -19,8 +19,15 @@
         <span class="tag is-light is-medium">Data:</span>
         <%=l @sale.sale_date  %>
       &nbsp;
-      	<span class="tag is-light is-medium">Rastreio:</span>
-		    <%=@sale.track  %>
+        <span class="tag is-light is-medium">Tipo:</span>
+        <span class="text-muted">
+          <span class="tag is-<%= %w(dark warning danger success)[@sale&.status_sale&.reference] %>">
+            <%= @sale&.status_sale&.name_upper if @sale.status_sale.present? %>
+          </span>
+        </span> 
+      &nbsp;
+        <span class="tag is-light is-medium">Rastreio:</span>
+        <%=@sale.track  %>
     </div>
   </div>
 </div>
@@ -30,6 +37,7 @@
     <tr>
       <th>Nome</th>
       <th>Quantidade</th>
+      <th>Valor Unitário</th>
     </tr>
   </thead>
     <tbody>
@@ -37,10 +45,24 @@
             <tr>
                 <td><%= orde.product.name %></td>
                 <td><%= orde.quant %></td>
+                <td><%= orde.product.sale_price %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
+
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-3">
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child box">
+            <p class="title">Total da Venda</p>
+            <p class="subtitle">R$<%= @sale.total_price %></p>
+          </article>
+        </div>
+      </div>
+  </div>
+</div>
 
 <div class="columns">
   <div class="field is-grouped is-grouped-right column is-4 is-offset-8">
