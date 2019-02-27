@@ -2,19 +2,19 @@
 <div class="tile is-ancestor">
   <div class="tile is-parent">
     <article class="tile is-child box">
-      <p class="title">Quantidade</p>
+      <p class="title is-4 is-4">Quantidade</p>
       <span class="tag is-info is-large"><%= @product.quantity %></span>
     </article>
   </div>
   <div class="tile is-parent">
     <article class="tile is-child box">
-      <p class="title">Quantidade Mínima</p>
+      <p class="title is-4">Quantidade Mínima</p>
       <span class="tag is-info is-large"><%= @product.low_quantity %></span>
     </article>
   </div>
   <div class="tile is-parent">
     <article class="tile is-child box">
-      <p class="title">Quantidade Disponível pra Venda</p>
+      <p class="title is-4">Quantidade Disponível pra Venda</p>
       <span class="tag is-info is-large"><%= @product.quantity-@product.low_quantity %></span>
     </article>
   </div>
@@ -22,19 +22,19 @@
 <div class="tile is-ancestor">
   <div class="tile is-parent">
     <article class="tile is-child box">
-      <p class="title">Nome</p>
+      <p class="title is-4">Nome</p>
       <span class="tag is-info is-large"><%= @product.name %></span>
     </article>
   </div>
   <div class="tile is-parent">
     <article class="tile is-child box">
-      <p class="title">Preço de Custo</p>
+      <p class="title is-4">Preço de Custo</p>
       <span class="tag is-info is-large"><%= @product.cost_price %></span>
     </article>
   </div>
   <div class="tile is-parent">
     <article class="tile is-child box">
-      <p class="title">Preço de Venda</p>
+      <p class="title is-4">Preço de Venda</p>
       <span class="tag is-info is-large"><%= @product.sale_price %></span>
     </article>
   </div>
@@ -42,7 +42,7 @@
 <div class="tile is-ancestor">
   <div class="tile is-parent">
     <article class="tile is-child box">
-      <p class="title">Tipo de Produto</p>
+      <p class="title is-4">Tipo de Produto</p>
       <span class="tag is-info is-large"><%= @product.product_type.name_code_of_product if @product.product_type.present? %></span>
     </article>
   </div>
