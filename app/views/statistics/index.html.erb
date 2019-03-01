@@ -17,7 +17,7 @@
 </h4>
 
 <div class="box">
-	<span class="tag is-black"><%= @most_frequent_item.name %></span>
+	<span class="tag is-black"><%= @most_frequent_item.name if @most_frequent_item.present?%></span>
 </div>
 
 <h4 class="title is-4">
