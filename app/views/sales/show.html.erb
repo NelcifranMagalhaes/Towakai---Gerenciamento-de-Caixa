@@ -50,17 +50,25 @@
         <% end %>
     </tbody>
 </table>
+<div class="tile is-parent">
+  <article class="tile is-child box">
+    <p class="title">Observação</p>
+    <p class="subtitle"><%= @sale.note %>
+  </article>
+</div>
 
-<div class="tile is-ancestor animated bounce">
-  <div class="tile is-vertical is-3">
-      <div class="tile">
-        <div class="tile is-parent is-vertical">
-          <article class="tile is-child box">
-            <p class="title">Total da Venda</p>
-            <p class="subtitle">R$<%= @sale.total_price %></p>
-          </article>
+<div class="column is-four-fifths">
+  <div class="tile is-ancestor animated bounce">
+    <div class="tile is-vertical is-3">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child box">
+              <p class="title">Total da Venda</p>
+              <p class="subtitle">R$<%= @sale.total_price %></p>
+            </article>
+          </div>
         </div>
-      </div>
+    </div>
   </div>
 </div>
 

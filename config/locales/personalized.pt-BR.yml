@@ -38,6 +38,7 @@ pt-BR:
         client: Cliente
         order: Quantidade=>
         track: Rastreio
+        note: Observação
 
       product_type:
         code: Tamanho/Número

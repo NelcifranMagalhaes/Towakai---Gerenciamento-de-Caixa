@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_134412) do
+ActiveRecord::Schema.define(version: 2019_03_05_222926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2019_02_22_134412) do
     t.bigint "user_id"
     t.bigint "status_sale_id"
     t.string "track"
+    t.text "note"
     t.index ["client_id"], name: "index_sales_on_client_id"
     t.index ["status_sale_id"], name: "index_sales_on_status_sale_id"
     t.index ["user_id"], name: "index_sales_on_user_id"
