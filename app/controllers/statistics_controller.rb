@@ -1,9 +1,10 @@
 class StatisticsController < ApplicationController
 	def index
-		today_date = Date.today.month
-		all_sales = Sale.where("EXTRACT(MONTH FROM sale_date) = #{today_date}") #Todas as vendas no Mês atual
+		today_date = Date.today
+		all_sales = Sale.month_sale(today_date.month,today_date.year) #Todas as vendas no Mês atual
 		product_ids = Array.new
 		total_value_sales = 0
+
 		#Pega os Ids das vendas
 		all_sales.each do |sale|
 
@@ -11,7 +12,7 @@ class StatisticsController < ApplicationController
 				product_ids.push(order.product.id)
 
 				if sale.status_sale.reference != 0
-					total_value_sales = total_value_sales + order.product.sale_price * order.quant
+					total_value_sales = total_value_sales + (order.product.sale_price * order.quant)
 				end
 			end
 		end
