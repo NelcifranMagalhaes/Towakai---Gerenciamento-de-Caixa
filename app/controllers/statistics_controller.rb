@@ -31,7 +31,7 @@ class StatisticsController < ApplicationController
 			year = params["/balance"]["year"].to_i
 			
 			if (month > 0 && month < 13) && (year > 0)
-				all_sales = Sale.month_sale(month,year) #Todas as vendas no Mês e Ano atual
+				all_sales = Sale.without_encomendas(month,year) #Todas as vendas no Mês e Ano atual
 				product_ids = Array.new
 				total_value_sales = 0
 				#Pega os Ids das vendas
@@ -39,14 +39,11 @@ class StatisticsController < ApplicationController
 
 					sale.orders.each do |order|
 						product_ids.push(order.product.id)
-
-						if sale.status_sale.reference != 0
-							total_value_sales = total_value_sales + (order.product.sale_price * order.quant)
-						end
+						total_value_sales = total_value_sales + (order.product.sale_price * order.quant)
 					end
+					
 				end
 				@most_frequent_item = product_ids.uniq.max_by{ |i| product_ids.count( i ) }#acha o id mais vendido
-
 
 				@value_total_all_sales = total_value_sales
 				@most_frequent_item = Product.find_by(id: @most_frequent_item) #Acha o produto mais vendido
@@ -60,6 +57,28 @@ class StatisticsController < ApplicationController
 
 		end
 
+	end
+
+	private
+
+	#pega uma data e retorna todas as encomendas naquele mẽs e ano da data
+	def total_encomendas_price(date)
+		sales = Sale.encomendas(date.month,date.year)
+		total_value_sales = 0
+
+		sales.each do |sale|
+			sale.orders.each do |order|
+				total_value_sales = total_value_sales + (order.product.sale_price * order.quant)
+			end
+		end
+		return total_value_sales
+	end
+
+	#pega uma data e retorna o número de encomendas naquele mês e ano da data
+	def total_encomendas_for_month(date)
+		sales = Sale.encomendas(date.month,date.year)
+
+		return sales.size
 	end
 
 end

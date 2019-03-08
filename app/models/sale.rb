@@ -8,6 +8,24 @@ class Sale < ApplicationRecord
 	scope :month_sale, -> (month,year) {
 		where("EXTRACT(MONTH FROM sale_date) = ? and EXTRACT(YEAR FROM sale_date) = ?","#{month}","#{year}")
 	}
+	
+	scope :encomendas, -> (month,year) {
+		joins(:status_sale)
+		.where("EXTRACT(MONTH FROM sale_date) = ? and EXTRACT(YEAR FROM sale_date) = ?","#{month}","#{year}")
+		.where(status_sales: {reference: 0})
+	}
+
+	scope :enviadas, -> (month,year) {
+		joins(:status_sale)
+		.where("EXTRACT(MONTH FROM sale_date) = ? and EXTRACT(YEAR FROM sale_date) = ?","#{month}","#{year}")
+		.where(status_sales: {reference: 2})
+	}
+
+	scope :without_encomendas, -> (month,year) {
+		joins(:status_sale)
+		.where("EXTRACT(MONTH FROM sale_date) = ? and EXTRACT(YEAR FROM sale_date) = ?","#{month}","#{year}")
+		.where.not(status_sales: {reference: 0})
+	}
 
 	validate :validation_of_quant,on: :create
 	validates :sale_date, presence: true
@@ -17,6 +35,7 @@ class Sale < ApplicationRecord
 	  Arel.sql('date(sale_date)')
 	end
 	
+	#valida o produto e caso passe, debita do estoque
 	def validation_of_quant
 		
 		if self.status_sale.present?
