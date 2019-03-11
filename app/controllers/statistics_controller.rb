@@ -1,7 +1,7 @@
 class StatisticsController < ApplicationController
 	def index
 		today_date = Date.today
-		all_sales = Sale.month_sale(today_date.month,today_date.year) #Todas as vendas no Mês atual
+		all_sales = Sale.without_encomendas(today_date.month,today_date.year) #Todas as vendas no Mês atual
 		product_ids = Array.new
 		total_value_sales = 0
 
@@ -10,10 +10,7 @@ class StatisticsController < ApplicationController
 
 			sale.orders.each do |order|
 				product_ids.push(order.product.id)
-
-				if sale.status_sale.reference != 0
-					total_value_sales = total_value_sales + (order.product.sale_price * order.quant)
-				end
+				total_value_sales = total_value_sales + (order.product.sale_price * order.quant)
 			end
 		end
 		@most_frequent_item = product_ids.uniq.max_by{ |i| product_ids.count( i ) }#acha o id mais vendido
@@ -48,6 +45,8 @@ class StatisticsController < ApplicationController
 				@value_total_all_sales = total_value_sales
 				@most_frequent_item = Product.find_by(id: @most_frequent_item) #Acha o produto mais vendido
 				@sales = all_sales.group_by_day(:sale_date).count
+				@total_encomendas = total_encomendas_price(month,year)
+				@encomendas_size = total_encomendas_for_month(month,year)
 			else
 	        	respond_to do |format|
 	        	  format.html { redirect_to balance_path, notice: "Preencha corretamente o campo 'Mês' e 'Ano'." }
@@ -62,8 +61,8 @@ class StatisticsController < ApplicationController
 	private
 
 	#pega uma data e retorna todas as encomendas naquele mẽs e ano da data
-	def total_encomendas_price(date)
-		sales = Sale.encomendas(date.month,date.year)
+	def total_encomendas_price(month,year)
+		sales = Sale.encomendas(month,year)
 		total_value_sales = 0
 
 		sales.each do |sale|
@@ -75,8 +74,8 @@ class StatisticsController < ApplicationController
 	end
 
 	#pega uma data e retorna o número de encomendas naquele mês e ano da data
-	def total_encomendas_for_month(date)
-		sales = Sale.encomendas(date.month,date.year)
+	def total_encomendas_for_month(month,year)
+		sales = Sale.encomendas(month,year)
 
 		return sales.size
 	end
