@@ -3,7 +3,9 @@
     <p>Produtos</p>
   </div>
 </article>
-
+<div class="box">
+  <%= bar_chart Product.group(:name).sum(:quantity) %>
+</div>
 <div class="box">
 <%= search_form_for @q, url: products_path, html: {method: :get} do |f| %>
 <div class="field-body">
