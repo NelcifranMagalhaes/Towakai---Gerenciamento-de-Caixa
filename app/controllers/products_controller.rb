@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   def index
     @q = Product.joins(:product_type).order(name: :asc).merge(ProductType.order(name: :asc)).ransack(params[:q])
     @products = @q.result.page(params[:page]).per(10)
+    @quantity_of_products = quantity_of_products(@products)
   end
 
   # GET /products/1
@@ -74,6 +75,14 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def quantity_of_products(products)
+      count = 0
+      products.each do |product|
+        count = count + product.quantity 
+      end
+      return count    
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

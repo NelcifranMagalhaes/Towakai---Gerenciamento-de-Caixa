@@ -7,6 +7,12 @@
   <%= bar_chart Product.group(:name).sum(:quantity) %>
 </div>
 <div class="box">
+  Quantidade de Produtos em estoque: 
+  <span class="tag is-link">
+    <%= @quantity_of_products %>
+  </span>
+</div>
+<div class="box">
 <%= search_form_for @q, url: products_path, html: {method: :get} do |f| %>
 <div class="field-body">
     <div class="field">
