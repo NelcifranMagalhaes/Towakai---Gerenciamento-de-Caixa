@@ -3,9 +3,12 @@
     <p>Produtos</p>
   </div>
 </article>
+<%= content_tag :div, class: "temp_information", data: {temp: @all_products} do %>
 <div class="box">
-  <%= bar_chart Product.group(:name).sum(:quantity) %>
+<div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
 </div>
+<% end %>
+
 <div class="box">
   Quantidade de Produtos em estoque: 
   <span class="tag is-link">

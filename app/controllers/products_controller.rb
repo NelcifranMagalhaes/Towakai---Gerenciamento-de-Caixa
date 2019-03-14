@@ -7,7 +7,8 @@ class ProductsController < ApplicationController
   def index
     @q = Product.joins(:product_type).order(name: :asc).merge(ProductType.order(name: :asc)).ransack(params[:q])
     @products = @q.result.page(params[:page]).per(10)
-    @quantity_of_products = quantity_of_products(@products)
+    @all_products = Product.all
+    @quantity_of_products = quantity_of_products(@all_products)
   end
 
   # GET /products/1
