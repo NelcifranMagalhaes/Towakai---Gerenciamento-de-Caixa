@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="card">
   <header class="card-header">
     <p class="card-header-title">
@@ -37,7 +35,8 @@
     <tr>
       <th>Nome</th>
       <th>Quantidade</th>
-      <th>Valor Unitário</th>
+      <th>Valor Unitário tabelado</th>
+      <th>Valor Unitário Vendido</th>
     </tr>
   </thead>
     <tbody>
@@ -46,6 +45,7 @@
                 <td><%= orde.product.name %></td>
                 <td><%= orde.quant %></td>
                 <td><%= orde.product.sale_price %></td>
+                <td><%= orde.price_saled %></td>
             </tr>
         <% end %>
     </tbody>
@@ -64,7 +64,7 @@
           <div class="tile is-parent is-vertical">
             <article class="tile is-child box">
               <p class="title">Total da Venda</p>
-              <p class="subtitle">R$<%= @sale.total_price %></p>
+              <p class="subtitle">R$<%= @sale.total_price_saled %></p>
             </article>
           </div>
         </div>

@@ -49,6 +49,9 @@ pt-BR:
       status_sale:
         name: nome
         description: descrição
+
+      order:
+        price_saled: Preço Vendido
         
     pagination:
       first: "&laquo;"

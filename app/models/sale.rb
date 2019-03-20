@@ -67,4 +67,12 @@ class Sale < ApplicationRecord
 		return total
 	end
 
+	def total_price_saled
+		total = 0
+		self.orders.each do |order|
+			total = total + order.price_saled * order.quant
+		end
+		return total
+	end
+
 end

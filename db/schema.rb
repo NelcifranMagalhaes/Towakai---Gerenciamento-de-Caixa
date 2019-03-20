@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_222926) do
+ActiveRecord::Schema.define(version: 2019_03_20_135544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_03_05_222926) do
     t.bigint "sale_id"
     t.bigint "product_id"
     t.integer "quant"
+    t.integer "price_saled_cents", default: 0, null: false
+    t.string "price_saled_currency", default: "BRL", null: false
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["sale_id"], name: "index_orders_on_sale_id"
   end
