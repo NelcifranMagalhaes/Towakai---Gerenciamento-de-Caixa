@@ -27,6 +27,10 @@ class Sale < ApplicationRecord
 		.where.not(status_sales: {reference: 0})
 	}
 
+	scope :todas, -> (month,year) {
+		where("EXTRACT(MONTH FROM sale_date) = ? and EXTRACT(YEAR FROM sale_date) = ?","#{month}","#{year}")
+	}
+
 	validate :validation_of_quant,on: :create
 	validates :sale_date, presence: true
 	validates :client, presence: true

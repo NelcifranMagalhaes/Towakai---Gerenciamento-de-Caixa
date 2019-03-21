@@ -55,5 +55,5 @@ end
 sale = Sale.find(Sale.pluck(:id))
 puts "criando Orders"
 30.times do |index|
-	Order.create!(sale_id: sale.shuffle.first.id,product_id: product.shuffle.first.id,quant: Faker::Number.between(1, 10))
+	Order.create!(sale_id: sale.shuffle.first.id,product_id: product.shuffle.first.id,quant: Faker::Number.between(1, 10),price_saled: Faker::Number.between(30, 500))
 end

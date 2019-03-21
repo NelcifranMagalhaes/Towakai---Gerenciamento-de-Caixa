@@ -29,8 +29,46 @@
 	</h4>
 
 	<div class="box">
-		<%= line_chart @sales %>
+		<%= line_chart @sales.group_by_day(:sale_date).count %>
 	</div>
+
+	 <div class="table-container">  
+	  <table class="table is-striped is-flex-tablet-only is-fullwidth">
+	    <thead>
+	      <tr>
+	        <th>Data</th>
+	        <th>Status</th>
+	        <th>Email</th>
+	        <th>Produtos</th>
+	        <th>Observações</th>
+	        <th>Total</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <% @sales.each do |sale| %>
+	        <tr>
+	          <td><%=l sale.sale_date if sale.sale_date.present? %></td>
+	          <td>
+	            <span class="text-muted">
+	              <span class="tag is-<%= %w(dark warning danger success)[sale&.status_sale&.reference] %>">
+	                <%= sale&.status_sale&.name_upper if sale.status_sale.present? %>
+	              </span>
+	            </span>            
+	          </td>
+	          <td><%=sale.user.email if sale.user.present?%></td>
+	          <td>
+	          	<% sale.orders.each do |order| %>
+	          		<%= order.quant %> - <%= order.product.name %><br>
+	          	<% end %>
+	          </td>
+	          <td><%=sale.note%></td>
+	          <td><%=sale.total_price_saled%></td>
+	        </tr>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div>
+
 <% end %>
 
 <% if @most_frequent_item.present?%>
@@ -46,7 +84,7 @@
 
 <% if @value_total_all_sales.present?%>
 	<h4 class="title is-4">
-		<span class="tag is-primary is-medium">Valor total das vendas enviadas/cadastradas/recebidas no Mês</span>
+		<span class="tag is-primary is-medium">Valor total das vendas no Mês</span>
 	</h4>
 
 	<div class="box">

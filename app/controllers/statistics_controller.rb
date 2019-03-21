@@ -1,7 +1,7 @@
 class StatisticsController < ApplicationController
 	def index
 		today_date = Date.today
-		all_sales = Sale.without_encomendas(today_date.month,today_date.year) #Todas as vendas no Mês atual
+		all_sales = Sale.todas(today_date.month,today_date.year) #Todas as vendas no Mês atual
 		product_ids = Array.new
 		total_value_sales = 0
 
@@ -10,7 +10,7 @@ class StatisticsController < ApplicationController
 
 			sale.orders.each do |order|
 				product_ids.push(order.product.id)
-				total_value_sales = total_value_sales + (order.product.sale_price * order.quant)
+				total_value_sales = total_value_sales + (order.price_saled * order.quant)
 			end
 		end
 		@most_frequent_item = product_ids.uniq.max_by{ |i| product_ids.count( i ) }#acha o id mais vendido
@@ -18,7 +18,7 @@ class StatisticsController < ApplicationController
 
 		@value_total_all_sales = total_value_sales
 		@most_frequent_item = Product.find_by(id: @most_frequent_item) #Acha o produto mais vendido
-		@sales = all_sales.group_by_day(:sale_date).count
+		@sales = all_sales
 
 	end
 
@@ -28,7 +28,7 @@ class StatisticsController < ApplicationController
 			year = params["/balance"]["year"].to_i
 			
 			if (month > 0 && month < 13) && (year > 0)
-				all_sales = Sale.without_encomendas(month,year) #Todas as vendas no Mês e Ano atual
+				all_sales = Sale.todas(month,year) #Todas as vendas no Mês e Ano atual
 				product_ids = Array.new
 				total_value_sales = 0
 				#Pega os Ids das vendas
@@ -36,7 +36,7 @@ class StatisticsController < ApplicationController
 
 					sale.orders.each do |order|
 						product_ids.push(order.product.id)
-						total_value_sales = total_value_sales + (order.product.sale_price * order.quant)
+						total_value_sales = total_value_sales + (order.price_saled * order.quant)
 					end
 					
 				end
@@ -44,7 +44,7 @@ class StatisticsController < ApplicationController
 
 				@value_total_all_sales = total_value_sales
 				@most_frequent_item = Product.find_by(id: @most_frequent_item) #Acha o produto mais vendido
-				@sales = all_sales.group_by_day(:sale_date).count
+				@sales = all_sales
 				@total_encomendas = total_encomendas_price(month,year)
 				@encomendas_size = total_encomendas_for_month(month,year)
 			else
@@ -67,7 +67,7 @@ class StatisticsController < ApplicationController
 
 		sales.each do |sale|
 			sale.orders.each do |order|
-				total_value_sales = total_value_sales + (order.product.sale_price * order.quant)
+				total_value_sales = total_value_sales + (order.price_saled * order.quant)
 			end
 		end
 		return total_value_sales
