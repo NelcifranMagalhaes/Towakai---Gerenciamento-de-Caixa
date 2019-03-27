@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @q = Product.joins(:product_type).order(name: :asc).merge(ProductType.order(name: :asc)).ransack(params[:q])
-    @products = @q.result.page(params[:page]).per(10)
+    @products = @q.result.page(params[:page]).per(30)
     @all_products = Product.where("quantity > 0")
     @quantity_of_products = quantity_of_products(@all_products)
   end

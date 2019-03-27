@@ -6,7 +6,7 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @q = Sale.order(sale_date: :desc).ransack(params[:q])
-    @sales = @q.result.page(params[:page]).per(10)
+    @sales = @q.result.page(params[:page]).per(30)
   end
 
   # GET /sales/1
