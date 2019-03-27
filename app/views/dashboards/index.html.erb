@@ -99,3 +99,45 @@
         </div>
     </div>
 </div>
+<div class="columns">
+    <div class="column is-12">
+        <div class="card events-card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    Vendas
+                </p>
+                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+            </header>
+            <div class="card-table">
+                <div class="content">
+                    <table class="table is-fullwidth is-striped">
+                        <tbody>
+                            <% @sales.each do |sale| %>
+                                <tr>
+                                    <td width="5%"><%= fa_icon "cart-plus"%></td>
+                                    <td><%=l sale.sale_date %></td>
+                                    <td><%=sale.client.name %></td>
+                                    <td>
+                                      <span class="text-muted">
+                                        <span class="tag is-<%= %w(dark warning danger success)[sale&.status_sale&.reference] %>">
+                                          <%= sale&.status_sale&.name_upper if sale.status_sale.present? %>
+                                        </span>
+                                      </span>            
+                                    </td>
+                                    <td width="5%"><%= link_to 'Ver', sale, class: "button is-small is-primary"%></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <footer class="card-footer">
+                <%= link_to 'Ver todos', sales_path ,class: "card-footer-item"%>
+            </footer>
+        </div>
+    </div>
+</div>
