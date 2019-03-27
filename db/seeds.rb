@@ -34,7 +34,7 @@ end
 
 product_type = ProductType.find(ProductType.pluck(:id))
 puts "Criando Produtos"
-30.times do |index|
+100.times do |index|
 	Product.create!(name: Faker::Commerce.product_name,
 		cost_price: Faker::Number.between(15, 100),low_quantity: Faker::Number.between(1, 10),product_type_id: product_type.shuffle.first.id,
 		sale_price: Faker::Number.between(30, 1000),quantity: Faker::Number.between(15, 100))
@@ -49,11 +49,11 @@ client = Client.find(Client.pluck(:id))
 product = Product.find(Product.pluck(:id))
 status_sale = StatusSale.find(StatusSale.pluck(:id))
 puts "criando vendas"
-30.times do |index|
+50.times do |index|
 	Sale.create!(client_id: client.shuffle.first.id,sale_date: Faker::Date.between(1.year.ago, Date.today),user_id: user.shuffle.first.id,status_sale_id: status_sale.shuffle.first.id)
 end
 sale = Sale.find(Sale.pluck(:id))
 puts "criando Orders"
-30.times do |index|
+50.times do |index|
 	Order.create!(sale_id: sale.shuffle.first.id,product_id: product.shuffle.first.id,quant: Faker::Number.between(1, 10),price_saled: Faker::Number.between(30, 500))
 end

@@ -3,10 +3,10 @@
     <p>Produtos</p>
   </div>
 </article>
-<%= content_tag :div, class: "temp_information", data: {temp: @all_products} do %>
+<%= content_tag :div, class: "temp_information", data: {temp: @all_products.order(quantity: :desc)} do %>
 <% end %>
 <div class="box">
-  <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+  <div id="container" style="min-width: 500; height: 600px; margin: 0 auto"></div>
 </div>
 <div class="box">
   Quantidade de Produtos em estoque: 

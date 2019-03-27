@@ -6,20 +6,21 @@ $(document).ready(function() {
     let productsConverted = new Array();
 
     for (i = 0; i < productTam; i++) {
-      productsConverted.push(
-      	[products[i].name,products[i].quantity]
-      	);
+
       names.push(products[i].name);
       quantities.push(products[i].quantity);
     }
-    
+    //escolhendo os 10 primeiros 
+    names = names.slice(0,10).reverse();
+    quantities = quantities.slice(0,10).reverse();
 
+    //Criando o objeto HighCharts
     Highcharts.chart('container', {
         chart: {
             type: 'bar'
         },
         title: {
-            text: 'Quantidade de Produtos em Estoque'
+            text: 'Top 10 Produtos em Estoque'
         },
         subtitle: {
             text: 'Source: Inventory Towakai'
@@ -58,8 +59,8 @@ $(document).ready(function() {
 
         tooltip: {
             formatter: function () {
-                return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
-                    'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                return '<b>' +this.point.category + '</b><br/>' +
+                    'Quantidade: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
             }
         },
 
