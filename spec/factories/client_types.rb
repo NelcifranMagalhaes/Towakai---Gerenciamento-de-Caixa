@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :client_type do
-    name { "MyString" }
-    tax_discount { 1.5 }
+    name { ["Loja","Aluno", "Professor"].sample }
+    tax_discount { Faker::Number.decimal(2) }
   end
 end

@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :client do
-    name { "MyString" }
-    address { "MyString" }
+    name { Faker::JapaneseMedia::OnePiece.character }
+    address { Faker::JapaneseMedia::OnePiece.location }
+    postal_code {Faker::Address.postcode}
+    client_type
   end
 end
