@@ -28,7 +28,7 @@ class StatisticsController < ApplicationController
 			year = params["/balance"]["year"].to_i
 			
 			if (month > 0 && month < 13) && (year > 0)
-				all_sales = Sale.todas(month,year) #Todas as vendas no Mês e Ano atual
+				all_sales = Sale.without_encomendas(month,year) #Todas as vendas no Mês e Ano atual sem emcomendas
 				product_ids = Array.new
 				total_value_sales = 0
 				#Pega os Ids das vendas
@@ -44,7 +44,7 @@ class StatisticsController < ApplicationController
 
 				@value_total_all_sales = total_value_sales
 				@most_frequent_item = Product.find_by(id: @most_frequent_item) #Acha o produto mais vendido
-				@sales = all_sales
+				@sales = Sale.todas(month,year)
 				@total_encomendas = total_encomendas_price(month,year)
 				@encomendas_size = total_encomendas_for_month(month,year)
 			else

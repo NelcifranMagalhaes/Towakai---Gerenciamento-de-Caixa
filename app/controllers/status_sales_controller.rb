@@ -56,11 +56,19 @@ class StatusSalesController < ApplicationController
   # DELETE /status_sales/1
   # DELETE /status_sales/1.json
   def destroy
-    @status_sale.destroy
-    respond_to do |format|
-      format.html { redirect_to status_sales_url, notice: 'Status de venda deletada com sucesso.' }
-      format.json { head :no_content }
+    if Sale.where(status_sale_id: @status_sale.id).size == 0#garantindo que não deletem status que estão sendo usados
+      @status_sale.destroy
+      respond_to do |format|
+        format.html { redirect_to status_sales_url, notice: 'Status de venda deletada com sucesso.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to status_sales_url, notice: 'Status de venda não pode ser deletado por esta sendo usado.' }
+        format.json { head :no_content }
+      end
     end
+
   end
 
   private

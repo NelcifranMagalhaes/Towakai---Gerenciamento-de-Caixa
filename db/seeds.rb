@@ -16,10 +16,10 @@ puts "Deletando Client type"
 ClientType.destroy_all
 
 puts "Criando status de venda"
-StatusSale.create!(name: "Encomenda",description: "Venda entregue ao cliente",reference: 0)
-StatusSale.create!(name: "Cadastrada",description: "Venda cadastrada",reference: 1)
+StatusSale.create!(name: "Em andamento",description: "Venda entregue ao cliente",reference: 0)
+StatusSale.create!(name: "Confirmação",description: "Venda cadastrada",reference: 1)
 StatusSale.create!(name: "Enviada",description: "Venda enviada para o cliente",reference: 2)
-StatusSale.create!(name: "Recebida",description: "Venda entregue ao cliente",reference: 3)
+StatusSale.create!(name: "Finalizado",description: "Venda entregue ao cliente",reference: 3)
 
 puts "Criando status de cliente"
 ClientType.create!(name: "Professor",tax_discount: 20.22)
@@ -34,7 +34,7 @@ end
 
 product_type = ProductType.find(ProductType.pluck(:id))
 puts "Criando Produtos"
-100.times do |index|
+30.times do |index|
 	Product.create!(name: Faker::Commerce.product_name,
 		cost_price: Faker::Number.between(15, 100),low_quantity: Faker::Number.between(1, 10),product_type_id: product_type.shuffle.first.id,
 		sale_price: Faker::Number.between(30, 1000),quantity: Faker::Number.between(15, 100))
@@ -49,7 +49,7 @@ client = Client.find(Client.pluck(:id))
 product = Product.find(Product.pluck(:id))
 status_sale = StatusSale.find(StatusSale.pluck(:id))
 puts "criando vendas"
-50.times do |index|
+10.times do |index|
 	Sale.create!(client_id: client.shuffle.first.id,sale_date: Faker::Date.between(1.year.ago, Date.today),user_id: user.shuffle.first.id,status_sale_id: status_sale.shuffle.first.id)
 end
 sale = Sale.find(Sale.pluck(:id))

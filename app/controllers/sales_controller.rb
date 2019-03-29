@@ -1,6 +1,8 @@
 class SalesController < ApplicationController
   load_and_authorize_resource
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
+  before_action :set_status_edit_update, only: [:edit, :update]
+  before_action :set_status_new_create, only: [:new, :create]
 
   # GET /sales
   # GET /sales.json
@@ -30,7 +32,6 @@ class SalesController < ApplicationController
     respond_to do |format|
       @sale.user_id = current_user.id
       if @sale.save
-
         format.html { redirect_to @sale, notice: 'Venda Criada.' }
         format.json { render :show, status: :created, location: @sale }
       else
@@ -68,6 +69,14 @@ class SalesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_sale
       @sale = Sale.find(params[:id])
+    end
+
+    def set_status_edit_update
+      @status_sale = StatusSale.where("reference = 2 or reference =  3")
+    end
+
+    def set_status_new_create
+      @status_sale = StatusSale.where("reference =  0 or reference =  1")
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

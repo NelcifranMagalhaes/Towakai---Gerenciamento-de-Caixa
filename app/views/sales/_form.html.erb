@@ -29,7 +29,7 @@
     <div class="field column is-one-third">
         <label class="label">Status</label>
         <div class="control">
-            <%= f.association :status_sale,label: false ,label_method: :name_upper,input_html: {class: 'select big-select'}%>
+            <%= f.association :status_sale,label: false ,collection: @status_sale,label_method: :name,input_html: {class: 'select big-select'}%>
         </div>
     </div>
     <div class="field column is-one-quarter">

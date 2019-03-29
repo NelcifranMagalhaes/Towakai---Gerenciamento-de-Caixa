@@ -31,7 +31,7 @@ class Sale < ApplicationRecord
 		where("EXTRACT(MONTH FROM sale_date) = ? and EXTRACT(YEAR FROM sale_date) = ?","#{month}","#{year}")
 	}
 
-	validate :validation_of_quant,on: :create
+	validate :validation_of_quant
 	validates :sale_date, presence: true
 	validates :client, presence: true
 
@@ -44,7 +44,7 @@ class Sale < ApplicationRecord
 		
 		if self.status_sale.present?
 			
-			if self.status_sale.name != 'Encomenda'
+			if self.status_sale.reference == 2 #debita do estoque unicamente se ela for enviada
 				
 				self.orders.each do |ord|
 					if (ord.product.quantity < ord.quant) || (ord.quant > ord.product.quantity - ord.product.low_quantity)
