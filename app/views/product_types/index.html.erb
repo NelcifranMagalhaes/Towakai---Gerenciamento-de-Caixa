@@ -32,6 +32,7 @@
           <th>Nome</th>
           <th>Cor</th>
           <th>Tamanho</th>
+          <th>Especificação de Produto</th>
           <th colspan="3">#</th>
         </tr>
       </thead>
@@ -42,6 +43,13 @@
             <td><%= product_type.name %></td> 
             <td><%= product_type.color %></td>
             <td><%= product_type.size %></td>
+            <td>
+              <% if product_type.product_specification.present? %>
+                <%= product_type.product_specification.name %>
+              <% else %>
+                Não informado
+              <% end %>
+            </td>
             <td>
               <%= render 'shared/action_links_no_del', object: product_type %>
             </td>
