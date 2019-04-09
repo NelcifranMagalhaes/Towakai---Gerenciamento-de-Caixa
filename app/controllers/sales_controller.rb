@@ -72,7 +72,7 @@ class SalesController < ApplicationController
     end
 
     def set_status_edit_update
-      @status_sale = StatusSale.where("reference = 2 or reference =  3")
+      @status_sale = StatusSale.where("reference = 2 or reference =  3 or reference = 0")
     end
 
     def set_status_new_create
