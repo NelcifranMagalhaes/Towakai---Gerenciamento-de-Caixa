@@ -9,6 +9,7 @@ pt-BR:
       order: Produtos Adicionados
       product_type: Tipo de Produto
       status_sale: Status da Venda
+      payment_type: Tipo de Pagamento
 
     attributes:  
       product:
@@ -52,7 +53,11 @@ pt-BR:
 
       order:
         price_saled: Preço Vendido
-        
+
+      payment_type:
+        name: Nome
+        description: Descrição
+
     pagination:
       first: "&laquo;"
       last: "&raquo;"
