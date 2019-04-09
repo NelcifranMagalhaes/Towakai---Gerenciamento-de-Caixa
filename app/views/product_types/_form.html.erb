@@ -21,6 +21,13 @@
               <%= f.input :size, label: false ,input_html: {class: 'input'}%>
           </div>
       </div>
+      <div class="field">
+          <label class="label">Especificação do Produto</label>
+          <div class="control">
+              <%= f.association :product_specification,label: false ,collection: ProductSpecification.order(name: :asc), prompt: "Escolha a especificação do produto",label_method: :name,input_html: {class: 'select'}%>
+          </div>
+      </div>
+      <br>
       <div class= "control">
           <%= f.button :submit ,class: "button is-primary"%>
       </div>

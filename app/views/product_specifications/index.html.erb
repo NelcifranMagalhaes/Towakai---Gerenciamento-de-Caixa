@@ -1,0 +1,53 @@
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Tipo de Produto</p>
+  </div>
+</article>
+<div class="box">
+    <%= search_form_for @q, url: product_specifications_path, html: {method: :get} do |f| %>
+            <div class="field is-horizontal">
+                  <div class="field is-grouped">          
+                      <p class="control is-expanded">
+                      <%= f.input :name_cont,class: 'input',label: false,placeholder: "Nome" %>
+                      </p>
+                  </div>   
+              &nbsp;
+              <div class="field-body">
+                <div class="field is-grouped">          
+                  <%= f.submit "Pesquisar", class: 'button is-primary' %>
+                </div>
+              </div>
+            </div>
+    <% end %>
+  </div>
+   <div class="table-container">  
+    <table class="table is-striped is-flex-tablet-only is-fullwidth">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th colspan="3">#</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @product_specifications.each do |product_specification|%>
+          <tr>
+            <td><%= product_specification.name %></td> 
+            <td><%= product_specification.description %></td>
+            <td>
+              <%= render 'shared/action_links_no_del', object: product_specification %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box">
+    <div class="columns is-gapless is-multiline is-mobile">
+      <%= paginate @product_specifications %>
+    </div>
+ </div>
+<%= link_to 'Novo Tipo de Produto',new_product_specification_path,class: "button is-link" %>
+</div>

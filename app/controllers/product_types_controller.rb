@@ -30,7 +30,7 @@ class ProductTypesController < ApplicationController
 
     respond_to do |format|
       if @product_type.save
-        format.html { redirect_to @product_type, notice: 'Product type was successfully created.' }
+        format.html { redirect_to @product_type, notice: 'Tipo de Produto criado.' }
         format.json { render :show, status: :created, location: @product_type }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ProductTypesController < ApplicationController
   def update
     respond_to do |format|
       if @product_type.update(product_type_params)
-        format.html { redirect_to @product_type, notice: 'Product type was successfully updated.' }
+        format.html { redirect_to @product_type, notice: 'Tipo de Produto atualizado.' }
         format.json { render :show, status: :ok, location: @product_type }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class ProductTypesController < ApplicationController
   def destroy
     @product_type.destroy
     respond_to do |format|
-      format.html { redirect_to product_types_url, notice: 'Product type was successfully destroyed.' }
+      format.html { redirect_to product_types_url, notice: 'Tipo de Produto deletado.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +71,6 @@ class ProductTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_type_params
-      params.require(:product_type).permit(:name,:color,:size)
+      params.require(:product_type).permit(:name,:color,:size,:product_specification_id)
     end
 end

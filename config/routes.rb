@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :product_specifications
   resources :payment_types
   resources :status_sales
   resources :client_types

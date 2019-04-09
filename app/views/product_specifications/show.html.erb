@@ -1,0 +1,41 @@
+<div class="columns">
+  <div class="column">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Nome
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+        <%= @product_specification.name %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Descrição
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <%= @product_specification.description %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+	<div class="field is-grouped is-grouped-right column is-4 is-offset-8">
+	  <p class="control">
+		<%= link_to 'Editar',edit_product_specification_path(@product_specification),class: "button is-primary" %>
+	  </p>
+	  <p class="control">
+		<%= link_to 'Voltar', product_specifications_path ,class: "button is-info is-inverted"%>
+	  </p>
+	</div>
+</div>

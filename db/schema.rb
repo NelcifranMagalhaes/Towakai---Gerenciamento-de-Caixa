@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_114530) do
+ActiveRecord::Schema.define(version: 2019_04_09_134121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,21 @@ ActiveRecord::Schema.define(version: 2019_04_09_114530) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "product_specifications", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "product_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "color"
     t.string "size"
+    t.bigint "product_specification_id"
+    t.index ["product_specification_id"], name: "index_product_types_on_product_specification_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -133,6 +142,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_114530) do
   end
 
   add_foreign_key "clients", "client_types"
+  add_foreign_key "product_types", "product_specifications"
   add_foreign_key "products", "product_types"
   add_foreign_key "sales", "payment_types"
   add_foreign_key "sales", "status_sales"

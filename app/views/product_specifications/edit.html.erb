@@ -1,0 +1,9 @@
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Editando Especificação de Produto</p>
+</div>
+ </article>   
+	<%= render 'form', product_specification: @product_specification %>
+<br>
+<%= link_to 'Mostrar', @product_specification ,class: "button is-link"%> 
+<%= link_to 'Voltar', product_specifications_path ,class: "button is-info is-inverted"%>

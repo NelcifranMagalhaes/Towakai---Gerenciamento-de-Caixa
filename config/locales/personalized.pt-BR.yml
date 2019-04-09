@@ -10,6 +10,7 @@ pt-BR:
       product_type: Tipo de Produto
       status_sale: Status da Venda
       payment_type: Tipo de Pagamento
+      product_specification: Especificação de Produto
 
     attributes:  
       product:
@@ -58,6 +59,10 @@ pt-BR:
         name: Nome
         description: Descrição
 
+      product_specification:
+        name: Nome
+        description: Descrição
+        
     pagination:
       first: "&laquo;"
       last: "&raquo;"

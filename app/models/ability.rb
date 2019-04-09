@@ -18,6 +18,7 @@ class Ability
             can :read,ProductType
             can :read,StatusSale
             can :read,PaymentType
+            can :read,ProductSpecification
         else
             can :read, :all
         end

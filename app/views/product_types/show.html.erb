@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="columns">
   <div class="column">
     <div class="card">
@@ -38,6 +37,24 @@
       <div class="card-content">
         <div class="content">
           <%= @product_type.color %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Especificação
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <% if @product_type.product_specification.present? %>
+            <%= @product_type.product_specification.name %>
+          <% else %>
+            Não informado
+          <% end %>
         </div>
       </div>
     </div>
