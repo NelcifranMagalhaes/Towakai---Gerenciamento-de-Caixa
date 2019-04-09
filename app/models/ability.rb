@@ -13,7 +13,7 @@ class Ability
         elsif user.has_role? :funcionario
             can :manage,Sale,user_id: user.id
             can :crud,Client
-            can :crud,ClientType
+            can :read,ClientType
             can :read,Product
             can :read,ProductType
             can :read,StatusSale
