@@ -18,10 +18,16 @@
             <%= f.input :sale_date,html5: true,label: false ,input_html: {class: 'input'}%>
         </div>
     </div>
-    <div class="field column is-two-fifths">
+    <div class="field column is-one-fifths">
         <label class="label">Cliente</label>
         <div class="control">
             <%= f.association :client,label: false ,collection: Client.order(name: :asc), prompt: "Escolha o Cliente",label_method: :name_with_type,input_html: {class: 'select selectSearch'}%>
+        </div>
+    </div>
+    <div class="field column is-one-fifths">
+        <label class="label">Forma de Pagamento</label>
+        <div class="control">
+            <%= f.association :payment_type,label: false ,collection: PaymentType.order(name: :asc), prompt: "Escolha a forma de pagamento",label_method: :name,input_html: {class: 'select selectSearch'}%>
         </div>
     </div>
   </div>

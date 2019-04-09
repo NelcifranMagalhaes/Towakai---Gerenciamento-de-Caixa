@@ -25,7 +25,17 @@
         </span> 
       &nbsp;
         <span class="tag is-light is-medium">Rastreio:</span>
-        <%=@sale.track  %>
+        <% if @sale.track.present?  %>
+          <%=@sale.track  %>
+        <% else %>
+          Não informado
+        <% end %>
+        <span class="tag is-light is-medium">Tipo de Pagamento:</span>
+        <% if @sale.payment_type.present?  %>
+          <%= @sale.payment_type.name %>
+        <% else %>
+          Não informado
+        <% end %>
     </div>
   </div>
 </div>

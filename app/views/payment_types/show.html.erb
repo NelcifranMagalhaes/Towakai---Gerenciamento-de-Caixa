@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<div class="columns">
+  <div class="column">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Nome
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+        <%= @payment_type.name %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Descrição
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <%= @payment_type.description %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+	<div class="field is-grouped is-grouped-right column is-4 is-offset-8">
+	  <p class="control">
+		<%= link_to 'Editar',edit_payment_type_path(@payment_type),class: "button is-primary" %>
+	  </p>
+	  <p class="control">
+		<%= link_to 'Voltar', payment_types_path ,class: "button is-info is-inverted"%>
+	  </p>
+	</div>
+</div>

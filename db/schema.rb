@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_20_135544) do
+ActiveRecord::Schema.define(version: 2019_04_09_114530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 2019_03_20_135544) do
     t.string "price_saled_currency", default: "BRL", null: false
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["sale_id"], name: "index_orders_on_sale_id"
+  end
+
+  create_table "payment_types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "product_types", force: :cascade do |t|
@@ -90,7 +97,9 @@ ActiveRecord::Schema.define(version: 2019_03_20_135544) do
     t.bigint "status_sale_id"
     t.string "track"
     t.text "note"
+    t.bigint "payment_type_id"
     t.index ["client_id"], name: "index_sales_on_client_id"
+    t.index ["payment_type_id"], name: "index_sales_on_payment_type_id"
     t.index ["status_sale_id"], name: "index_sales_on_status_sale_id"
     t.index ["user_id"], name: "index_sales_on_user_id"
   end
@@ -125,6 +134,7 @@ ActiveRecord::Schema.define(version: 2019_03_20_135544) do
 
   add_foreign_key "clients", "client_types"
   add_foreign_key "products", "product_types"
+  add_foreign_key "sales", "payment_types"
   add_foreign_key "sales", "status_sales"
   add_foreign_key "sales", "users"
 end
