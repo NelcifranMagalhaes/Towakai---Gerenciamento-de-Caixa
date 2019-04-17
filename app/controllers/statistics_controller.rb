@@ -1,7 +1,7 @@
 class StatisticsController < ApplicationController
 	def index
 		today_date = Date.today
-		all_sales = Sale.todas(today_date.month,today_date.year) #Todas as vendas no Mês atual
+		all_sales = Sale.without_encomendas(today_date.month,today_date.year) #Todas as vendas no Mês atual
 		product_ids = Array.new
 		total_value_sales = 0
 
@@ -18,7 +18,9 @@ class StatisticsController < ApplicationController
 
 		@value_total_all_sales = total_value_sales
 		@most_frequent_item = Product.find_by(id: @most_frequent_item) #Acha o produto mais vendido
-		@sales = all_sales
+		@sales = Sale.todas(today_date.month,today_date.year) #todas as vendas do Mês
+		@total_encomendas = total_encomendas_price(today_date.month,today_date.year) #valor total de todas as encomendas
+		@encomendas_size = total_encomendas_for_month(today_date.month,today_date.year)
 
 	end
 
@@ -42,10 +44,10 @@ class StatisticsController < ApplicationController
 				end
 				@most_frequent_item = product_ids.uniq.max_by{ |i| product_ids.count( i ) }#acha o id mais vendido
 
-				@value_total_all_sales = total_value_sales
+				@value_total_all_sales = total_value_sales #total das vendas sem encomendas
 				@most_frequent_item = Product.find_by(id: @most_frequent_item) #Acha o produto mais vendido
-				@sales = Sale.todas(month,year)
-				@total_encomendas = total_encomendas_price(month,year)
+				@sales = Sale.todas(month,year) #todas as vendas do Mês
+				@total_encomendas = total_encomendas_price(month,year) #valor total de todas as encomendas
 				@encomendas_size = total_encomendas_for_month(month,year)
 			else
 	        	respond_to do |format|

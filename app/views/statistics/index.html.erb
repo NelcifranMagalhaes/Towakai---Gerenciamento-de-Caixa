@@ -61,3 +61,21 @@
 <div class="box">
 	<span class="tag is-black">R$<%= @value_total_all_sales%></span>
 </div>
+<% if @total_encomendas.present?%>
+  <h4 class="title is-4">
+    <span class="tag is-primary is-medium">Valor total das Encomendas</span>
+  </h4>
+
+  <div class="box">
+    <span class="tag is-black">R$<%= @total_encomendas%></span>
+  </div>
+<% end %>
+<% if @encomendas_size.present?%>
+  <h4 class="title is-4">
+    <span class="tag is-primary is-medium">Quantidade de encomendas feitas</span>
+  </h4>
+
+  <div class="box">
+    <span class="tag is-black"><%= @encomendas_size%></span>
+  </div>
+<% end %>
