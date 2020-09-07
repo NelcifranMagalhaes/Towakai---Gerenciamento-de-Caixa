@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
@@ -35,18 +34,17 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  #https://github.com/rspec/rspec-rails
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 3.8'
-  #https://github.com/thoughtbot/factory_bot_rails
+  # https://github.com/thoughtbot/factory_bot_rails
   gem 'factory_bot_rails'
-
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -65,21 +63,21 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-#https://github.com/jquery-ui-rails/jquery-ui-rails
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+# https://github.com/jquery-ui-rails/jquery-ui-rails
 gem 'jquery-ui-rails'
-#https://github.com/plataformatec/simple_form
+# https://github.com/plataformatec/simple_form
 gem 'simple_form'
-#https://github.com/rails/jquery-rails
+# https://github.com/rails/jquery-rails
 gem 'jquery-rails'
-#https://github.com/bokmann/font-awesome-rails
-gem 'font-awesome-rails'
+# https://github.com/bokmann/font-awesome-rails
 gem 'devise'
+gem 'font-awesome-rails'
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
-#https://github.com/stympy/faker
+# https://github.com/stympy/faker
+gem 'cocoon'
 gem 'faker'
-gem "select2-rails"
-gem "cocoon"
+gem 'select2-rails'
 # https://github.com/kaminari/kaminari
 gem 'kaminari'
 # Object-based searching. http://ransack-demo.herokuapp.com
@@ -87,10 +85,10 @@ gem 'ransack'
 # https://github.com/RubyMoney/money-rails
 gem 'money-rails', '~>1.12'
 # https://chartkick.com/
-gem "chartkick"
+gem 'chartkick'
 # https://github.com/ankane/groupdate
 gem 'groupdate'
 # https://github.com/RolifyCommunity/rolify
-gem "rolify"
+gem 'rolify'
 # https://github.com/CanCanCommunity/cancancan
 gem 'cancancan', '~> 2.0'
