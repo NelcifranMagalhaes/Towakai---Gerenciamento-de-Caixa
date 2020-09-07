@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este projeto foi feito para controlar as vendas e os clientes de uma loja, assim como lucros e afins, ele possui gráficos e métricas que podem lhe ajudar a controlar sua loja.
 
-Things you may want to cover:
+![](towakai.png)
 
-* Ruby version
+## Instalação
 
-* System dependencies
+Windows & Linux:
 
-* Configuration
+```sh
+git clone or download the project
+```
 
-* Database creation
+## Tecnologias Usadas
 
-* Database initialization
+*  Ruby on Rails
+*  Bulma front end Framework
+*  Font awesome
+*  Variás Gems
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contato
 
-* Deployment instructions
-
-* ...
+Nelcifran Magalhaes – [@Linkedin](https://www.linkedin.com/in/nelcifranpires/
+) – nelcifranpires@gmail.com
