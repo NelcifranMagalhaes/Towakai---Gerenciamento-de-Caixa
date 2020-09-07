@@ -10,14 +10,18 @@ Windows & Linux:
 
 ```sh
 git clone or download the project
+
 ```
+* rode rails db:create para criar o banco de dados
+* rode rails db:migrate para criar as migrações
+* rode rails db:seed para popular o banco com alguns dados
 
 ## Tecnologias Usadas
 
 *  Ruby on Rails
 *  Bulma front end Framework
 *  Font awesome
-*  Variás Gems
+*  Várias Gems, entre elas(Devise, ransack, cancancan, kaminari e etc..)
 
 
 ## Contato
