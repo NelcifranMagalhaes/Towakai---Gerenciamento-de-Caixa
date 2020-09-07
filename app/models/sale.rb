@@ -21,7 +21,7 @@ class Sale < ApplicationRecord
   scope :enviadas, lambda { |month, year|
     joins(:status_sale)
       .where('EXTRACT(MONTH FROM sale_date) = ? and EXTRACT(YEAR FROM sale_date) = ?', month.to_s, year.to_s)
-      .where(status_sales: {reference: 2})
+      .where(status_sales: { reference: 2 })
   }
 
   scope :without_encomendas, lambda { |month, year|
