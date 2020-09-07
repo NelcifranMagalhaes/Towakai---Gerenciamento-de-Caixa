@@ -16,6 +16,9 @@ puts 'Deletando Client type'
 ClientType.destroy_all
 puts 'Deletando usuários'
 User.destroy_all
+PaymentType.destroy_all
+ProductType.destroy_all
+ProductSpecification.destroy_all
 
 puts 'Criando status de venda'
 StatusSale.create!(name: 'Em andamento', description: 'Venda entregue ao cliente', reference: 0)
