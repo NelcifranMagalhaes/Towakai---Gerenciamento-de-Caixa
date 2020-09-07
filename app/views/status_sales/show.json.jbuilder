@@ -1,1 +1,3 @@
-json.partial! "status_sales/status_sale", status_sale: @status_sale
+# frozen_string_literal: true
+
+json.partial! 'status_sales/status_sale', status_sale: @status_sale

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 I18n.locale = 'pt-BR'
 puts 'Deletando Clientes'

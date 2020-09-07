@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :product_specifications
   resources :payment_types
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   resources :clients
   resources :products
   # resources :products_clients
-  resources :users,only:[:edit, :update, :index]
+  resources :users, only: %i[edit update index]
   # devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'dashboards#index'
@@ -20,5 +22,4 @@ Rails.application.routes.draw do
   # get '/users', to: 'users#index'
   # get '/users/:id/edit' ,to: 'users#edit', as: 'users_edit'
   # get '/users/:id' ,to: 'users#update', as: 'user_path'
-
 end

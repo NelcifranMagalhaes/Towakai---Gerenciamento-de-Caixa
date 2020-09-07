@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ClientTypesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_client_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_client_type, only: %i[show edit update destroy]
 
   # GET /client_types
   # GET /client_types.json
@@ -11,8 +13,7 @@ class ClientTypesController < ApplicationController
 
   # GET /client_types/1
   # GET /client_types/1.json
-  def show
-  end
+  def show; end
 
   # GET /client_types/new
   def new
@@ -20,8 +21,7 @@ class ClientTypesController < ApplicationController
   end
 
   # GET /client_types/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /client_types
   # POST /client_types.json
@@ -64,13 +64,14 @@ class ClientTypesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_client_type
-      @client_type = ClientType.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def client_type_params
-      params.require(:client_type).permit(:name, :tax_discount)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_client_type
+    @client_type = ClientType.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def client_type_params
+    params.require(:client_type).permit(:name, :tax_discount)
+  end
 end

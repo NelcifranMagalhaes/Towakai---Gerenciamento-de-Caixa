@@ -1,20 +1,21 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: %i[show edit update destroy]
 
   # GET /products
   # GET /products.json
   def index
     @q = Product.joins(:product_type).order(name: :asc).merge(ProductType.order(name: :asc)).ransack(params[:q])
     @products = @q.result.page(params[:page]).per(30)
-    @all_products = Product.where("quantity > 0")
+    @all_products = Product.where('quantity > 0')
     @quantity_of_products = quantity_of_products(@all_products)
   end
 
   # GET /products/1
   # GET /products/1.json
-  def show
-  end
+  def show; end
 
   # GET /products/new
   def new
@@ -22,8 +23,7 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /products
   # POST /products.json
@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    if @product.orders.size == 0
+    if @product.orders.size.zero?
       @product.destroy
       respond_to do |format|
         format.html { redirect_to products_url, notice: 'Produto Deletado.' }
@@ -73,21 +73,22 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    def quantity_of_products(products)
-      count = 0
-      products.each do |product|
-        count = count + product.quantity 
-      end
-      return count    
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:cost_price, :sale_price, :name, :quantity,:low_quantity,:product_type_id)
+  def quantity_of_products(products)
+    count = 0
+    products.each do |product|
+      count += product.quantity
     end
+    count
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_params
+    params.require(:product).permit(:cost_price, :sale_price, :name, :quantity, :low_quantity, :product_type_id)
+  end
 end

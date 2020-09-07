@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ProductSpecificationsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_product_specification, only: [:show, :edit, :update, :destroy]
+  before_action :set_product_specification, only: %i[show edit update destroy]
 
   # GET /product_specifications
   # GET /product_specifications.json
@@ -11,8 +13,7 @@ class ProductSpecificationsController < ApplicationController
 
   # GET /product_specifications/1
   # GET /product_specifications/1.json
-  def show
-  end
+  def show; end
 
   # GET /product_specifications/new
   def new
@@ -20,8 +21,7 @@ class ProductSpecificationsController < ApplicationController
   end
 
   # GET /product_specifications/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /product_specifications
   # POST /product_specifications.json
@@ -64,13 +64,14 @@ class ProductSpecificationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product_specification
-      @product_specification = ProductSpecification.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_specification_params
-      params.require(:product_specification).permit(:name, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product_specification
+    @product_specification = ProductSpecification.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_specification_params
+    params.require(:product_specification).permit(:name, :description)
+  end
 end

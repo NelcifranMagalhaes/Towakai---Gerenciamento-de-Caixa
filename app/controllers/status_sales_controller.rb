@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class StatusSalesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_status_sale, only: [:show, :edit, :update, :destroy]
+  before_action :set_status_sale, only: %i[show edit update destroy]
 
   # GET /status_sales
   # GET /status_sales.json
@@ -11,8 +13,7 @@ class StatusSalesController < ApplicationController
 
   # GET /status_sales/1
   # GET /status_sales/1.json
-  def show
-  end
+  def show; end
 
   # GET /status_sales/new
   def new
@@ -20,8 +21,7 @@ class StatusSalesController < ApplicationController
   end
 
   # GET /status_sales/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /status_sales
   # POST /status_sales.json
@@ -56,7 +56,7 @@ class StatusSalesController < ApplicationController
   # DELETE /status_sales/1
   # DELETE /status_sales/1.json
   def destroy
-    if Sale.where(status_sale_id: @status_sale.id).size == 0#garantindo que não deletem status que estão sendo usados
+    if Sale.where(status_sale_id: @status_sale.id).size.zero? # garantindo que não deletem status que estão sendo usados
       @status_sale.destroy
       respond_to do |format|
         format.html { redirect_to status_sales_url, notice: 'Status de venda deletada com sucesso.' }
@@ -68,17 +68,17 @@ class StatusSalesController < ApplicationController
         format.json { head :no_content }
       end
     end
-
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_status_sale
-      @status_sale = StatusSale.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def status_sale_params
-      params.require(:status_sale).permit(:name, :description,:reference)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_status_sale
+    @status_sale = StatusSale.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def status_sale_params
+    params.require(:status_sale).permit(:name, :description, :reference)
+  end
 end

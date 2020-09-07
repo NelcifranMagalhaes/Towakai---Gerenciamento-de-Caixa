@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class StatusSale < ApplicationRecord
-	validates :name,presence: true
+  validates :name, presence: true
 
-
-	def name_upper
-		"#{self.name.upcase}"
-	end
+  def name_upper
+    name.upcase.to_s
+  end
 end

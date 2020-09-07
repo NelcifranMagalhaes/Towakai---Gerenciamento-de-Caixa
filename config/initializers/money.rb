@@ -1,4 +1,5 @@
-# encoding : utf-8
+# frozen_string_literal: true
+
 Money.locale_backend = :currency
 MoneyRails.configure do |config|
   config.default_currency = :brl

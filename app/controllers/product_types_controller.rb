@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ProductTypesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_product_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_product_type, only: %i[show edit update destroy]
 
   # GET /product_types
   # GET /product_types.json
@@ -11,8 +13,7 @@ class ProductTypesController < ApplicationController
 
   # GET /product_types/1
   # GET /product_types/1.json
-  def show
-  end
+  def show; end
 
   # GET /product_types/new
   def new
@@ -20,8 +21,7 @@ class ProductTypesController < ApplicationController
   end
 
   # GET /product_types/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /product_types
   # POST /product_types.json
@@ -64,13 +64,14 @@ class ProductTypesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product_type
-      @product_type = ProductType.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_type_params
-      params.require(:product_type).permit(:name,:color,:size,:product_specification_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product_type
+    @product_type = ProductType.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_type_params
+    params.require(:product_type).permit(:name, :color, :size, :product_specification_id)
+  end
 end

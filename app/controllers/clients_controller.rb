@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ClientsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_action :set_client, only: %i[show edit update destroy]
   # GET /clients
   # GET /clients.json
   def index
@@ -10,8 +12,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/1
   # GET /clients/1.json
-  def show
-  end
+  def show; end
 
   # GET /clients/new
   def new
@@ -19,8 +20,7 @@ class ClientsController < ApplicationController
   end
 
   # GET /clients/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /clients
   # POST /clients.json
@@ -55,7 +55,7 @@ class ClientsController < ApplicationController
   # DELETE /clients/1
   # DELETE /clients/1.json
   def destroy
-    if @client.sales.size == 0
+    if @client.sales.size.zero?
       @client.destroy
       respond_to do |format|
         format.html { redirect_to clients_url, notice: 'Cliente Deletado.' }
@@ -70,13 +70,14 @@ class ClientsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_client
-      @client = Client.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def client_params
-      params.require(:client).permit(:name, :address,:email,:phone,:cpf,:cnpj,:client_type_id,:weight,:height,:postal_code,:uf)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_client
+    @client = Client.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def client_params
+    params.require(:client).permit(:name, :address, :email, :phone, :cpf, :cnpj, :client_type_id, :weight, :height, :postal_code, :uf)
+  end
 end

@@ -1,9 +1,9 @@
-SimpleForm.setup do |config|
+# frozen_string_literal: true
 
-  #config.generate_additional_classes_for = ['field']
+SimpleForm.setup do |config|
+  # config.generate_additional_classes_for = ['field']
 
   config.wrappers :default, tag: 'div', class: '', error_class: 'has-error' do |b|
-
     b.use         :placeholder
     b.optional    :maxlength
     b.optional    :pattern
@@ -11,31 +11,26 @@ SimpleForm.setup do |config|
     b.optional    :readonly
 
     b.wrapper tag: 'div', class: 'field' do |ba|
-
       ba.use      :input,
-                  :class      => 'input'
+                  class: 'input'
 
       ba.optional :hint,
-                  :wrap_with  => { tag: 'p', class: 'help' }
+                  wrap_with: { tag: 'p', class: 'help' }
 
       ba.optional :label,
-                  :class      => 'label',
-                  :wrap_with  => { tag: 'label', class: 'label' }
-                  
-    b.use :error, wrap_with: { tag: 'span',class: 'tag is-danger' } #para mudar o style do error no campo
+                  class: 'label',
+                  wrap_with: { tag: 'label', class: 'label' }
 
+      b.use :error, wrap_with: { tag: 'span', class: 'tag is-danger' } # para mudar o style do error no campo
     end
-
   end
 
   config.wrappers :boolean, tag: 'div', class: 'control', error_class: 'has-error' do |b|
-
-    b.wrapper :label, tag: "label", class: "checkbox" do |ba|
-      ba.use :input,  :class => 'checkbox'
+    b.wrapper :label, tag: 'label', class: 'checkbox' do |ba|
+      ba.use :input,  class: 'checkbox'
       ba.use :label_text
-      ba.use :hint,  :wrap_with => {tag: 'p', class: 'help'}
+      ba.use :hint, wrap_with: {tag: 'p', class: 'help'}
     end
-
   end
 
   class StringInput < SimpleForm::Inputs::StringInput
@@ -49,5 +44,4 @@ SimpleForm.setup do |config|
       super.push('textarea')
     end
   end
-  
 end

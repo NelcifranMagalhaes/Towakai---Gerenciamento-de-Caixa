@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddStatusSaleToSale < ActiveRecord::Migration[5.2]
   def change
     add_reference :sales, :status_sale, foreign_key: true

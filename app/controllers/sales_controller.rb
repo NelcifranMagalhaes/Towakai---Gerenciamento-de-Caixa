@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class SalesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_sale, only: [:show, :edit, :update, :destroy]
-  before_action :set_status_edit_update, only: [:edit, :update]
-  before_action :set_status_new_create, only: [:new, :create]
+  before_action :set_sale, only: %i[show edit update destroy]
+  before_action :set_status_edit_update, only: %i[edit update]
+  before_action :set_status_new_create, only: %i[new create]
 
   # GET /sales
   # GET /sales.json
@@ -13,8 +15,7 @@ class SalesController < ApplicationController
 
   # GET /sales/1
   # GET /sales/1.json
-  def show
-  end
+  def show; end
 
   # GET /sales/new
   def new
@@ -22,8 +23,7 @@ class SalesController < ApplicationController
   end
 
   # GET /sales/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /sales
   # POST /sales.json
@@ -66,22 +66,23 @@ class SalesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sale
-      @sale = Sale.find(params[:id])
-    end
 
-    def set_status_edit_update
-      @status_sale = StatusSale.where("reference = 2 or reference =  3 or reference = 0")
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sale
+    @sale = Sale.find(params[:id])
+  end
 
-    def set_status_new_create
-      @status_sale = StatusSale.where("reference =  0 or reference =  1")
-    end
+  def set_status_edit_update
+    @status_sale = StatusSale.where('reference = 2 or reference =  3 or reference = 0')
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def sale_params
-      params.require(:sale).permit(:client_id,:sale_date,:quant,:user_id,:status_sale_id,:track,:note,:payment_type_id,
-        orders_attributes: [:id,:quant,:price_saled,:sale_id, :product_id, :_destroy])
-    end
+  def set_status_new_create
+    @status_sale = StatusSale.where('reference =  0 or reference =  1')
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def sale_params
+    params.require(:sale).permit(:client_id, :sale_date, :quant, :user_id, :status_sale_id, :track, :note, :payment_type_id,
+                                 orders_attributes: %i[id quant price_saled sale_id product_id _destroy])
+  end
 end

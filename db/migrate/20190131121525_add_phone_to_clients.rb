@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddPhoneToClients < ActiveRecord::Migration[5.2]
   def change
     add_column :clients, :phone, :string
